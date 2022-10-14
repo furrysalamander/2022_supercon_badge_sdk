@@ -2,7 +2,7 @@ grammar assembly;
 options {}
 
 start
-: (label? instruction)* EOF;
+: (instruction)* EOF;
 
 // Is there an easy way to enforce size limits on the immediates here?  Or will we need to do that when walking the tree?
 
@@ -19,10 +19,10 @@ instruction
 | MOV register COMMA nibble
 | MOV register_combo COMMA R0
 | MOV R0 COMMA register_combo
-| MOV R0 COMMA '[' byte ']' // Maybe this should be a special case, like the register combo.
+| MOV R0 COMMA '[' data_byte ']' // Maybe this should be a special case, like the register combo.
 //| MOV PC COMMA // At one point in the docs, this instruction is called LPC.  Personally, I think that's cleaner than all these MOV variants, but whatever.
-| LPC byte
-| JR byte
+| LPC data_byte
+| JR data_byte
 | CP R0 COMMA nibble
 | ADD R0 COMMA nibble
 | INC register
@@ -40,6 +40,12 @@ instruction
 | RET R0 COMMA nibble
 | mn_SKIP flag COMMA quarter
 ;
+
+macro:
+DOT
+( STRING
+| 
+);
 
 register
 : R0
@@ -67,7 +73,7 @@ flag // TODO: not yet finished.
 | 'nc'
 ;
 
-
+// Registers
 R0: 'R0';
 R1: 'R1';
 R2: 'R2';
@@ -89,16 +95,23 @@ RG
 : R0
 | R1
 | R2
-| RS // FIXME: What the heck is RS?
+// | RS // FIXME: What the heck is RS?
 ;
 
-// TODO
-byte: '';
-nibble: '';
-quarter: ''; // Half a nibble
+
+data_byte: literal;
+nibble: literal;
+quarter: literal; // Half a nibble
+literal: 's';
+
+// literal
+// : NUMBER
+// | CHARACTER
+// ;
 
 register_combo: '[' register ':' register ']';
 
+// Instructions
 ADD: 'ADD';
 ADC: 'ADC';
 SUB: 'SUB';
@@ -123,25 +136,46 @@ mn_SKIP: 'SKIP';
 
 LPC: 'LPC'; // This is listed in the instruction sheet for MOV PC... maybe it was a typo, but I like it.
 
-// operand
-// : 'R1';
-// binary_mnemonic
-// : 'ADD'
-// | 'ADC'
-// | 'SUB'
-// | 'SBB'
-// | 'OR'
-// | 'AND'
-// | 'XOR'
-// | 'MOV' // Should MOV be a special case?  How do we want to handle these kinds of things?
-// ;
+// Directives
+STRING: 'string';
 
-// immediate_mnemonic
-// : 'JR'
-// ;
-// unary_mnemonic
-// : 'INC';
 
+DOT: '.';
 COMMA: ',';
 
-WHITESPACE : ' ' -> skip;
+CHARACTER
+: '\'' . '\''
+| '\'\\' . '\'';
+
+COMMENT
+: '/*' .*? '*/' -> skip
+;
+LINE_COMMENT
+: '//' ~[\r\n]* -> skip
+;
+
+// fragment LETTER      : [A-Za-z_];
+// IDENTIFIER           : LETTER(LETTER|NUMBER)*;
+
+// NUMBER      : '-'? [0-9]+ ;
+WHITESPACE           : ' ' -> skip ;
+NEWLINE              : '\n' -> skip ;
+CARRIAGE             : '\r' -> skip ;
+TAB                  : '\t' -> skip ;
+
+UNKNOWN : .;
+
+/* 
+
+Various TODOs
+
+Macro support
+Data section and program section...?
+Labels
+Literals
+Assembler directives (stringz, char, int, word, etc.)
+A list of potential directives to add:
+
+https://docs.oracle.com/cd/E26502_01/html/E28388/eoiyg.html
+
+*/
