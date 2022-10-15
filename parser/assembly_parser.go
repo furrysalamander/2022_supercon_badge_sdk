@@ -1,167 +1,188 @@
-// Code generated from Assembly.g4 by ANTLR 4.7.2. DO NOT EDIT.
+// Code generated from java-escape by ANTLR 4.11.1. DO NOT EDIT.
 
 package parser // Assembly
-
 import (
 	"fmt"
-	"reflect"
 	"strconv"
+	"sync"
 
-	"github.com/antlr/antlr4/runtime/Go/antlr"
+	"github.com/antlr/antlr4/runtime/Go/antlr/v4"
 )
 
 // Suppress unused import errors
 var _ = fmt.Printf
-var _ = reflect.Copy
 var _ = strconv.Itoa
-
-var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 66, 221,
-	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
-	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13,
-	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 3, 2, 3, 2, 3, 2, 5, 2, 34, 10, 2, 7,
-	2, 36, 10, 2, 12, 2, 14, 2, 39, 11, 2, 3, 2, 3, 2, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-	3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 5, 3, 162, 10, 3, 3, 4, 3,
-	4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3,
-	4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 5,
-	4, 189, 10, 4, 3, 5, 3, 5, 3, 5, 5, 5, 194, 10, 5, 3, 6, 3, 6, 3, 7, 3,
-	7, 3, 8, 3, 8, 3, 9, 3, 9, 3, 10, 3, 10, 3, 11, 3, 11, 3, 12, 3, 12, 3,
-	12, 3, 12, 3, 12, 3, 12, 3, 13, 3, 13, 3, 14, 3, 14, 3, 14, 3, 15, 3, 15,
-	3, 15, 2, 2, 16, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 2,
-	7, 3, 2, 8, 23, 3, 2, 8, 10, 3, 2, 3, 6, 4, 2, 57, 57, 61, 61, 4, 2, 53,
-	53, 60, 60, 2, 243, 2, 37, 3, 2, 2, 2, 4, 161, 3, 2, 2, 2, 6, 188, 3, 2,
-	2, 2, 8, 190, 3, 2, 2, 2, 10, 195, 3, 2, 2, 2, 12, 197, 3, 2, 2, 2, 14,
-	199, 3, 2, 2, 2, 16, 201, 3, 2, 2, 2, 18, 203, 3, 2, 2, 2, 20, 205, 3,
-	2, 2, 2, 22, 207, 3, 2, 2, 2, 24, 213, 3, 2, 2, 2, 26, 215, 3, 2, 2, 2,
-	28, 218, 3, 2, 2, 2, 30, 33, 5, 26, 14, 2, 31, 34, 5, 4, 3, 2, 32, 34,
-	5, 6, 4, 2, 33, 31, 3, 2, 2, 2, 33, 32, 3, 2, 2, 2, 34, 36, 3, 2, 2, 2,
-	35, 30, 3, 2, 2, 2, 36, 39, 3, 2, 2, 2, 37, 35, 3, 2, 2, 2, 37, 38, 3,
-	2, 2, 2, 38, 40, 3, 2, 2, 2, 39, 37, 3, 2, 2, 2, 40, 41, 7, 2, 2, 3, 41,
-	3, 3, 2, 2, 2, 42, 43, 7, 24, 2, 2, 43, 44, 5, 10, 6, 2, 44, 45, 7, 55,
-	2, 2, 45, 46, 5, 10, 6, 2, 46, 162, 3, 2, 2, 2, 47, 48, 7, 25, 2, 2, 48,
-	49, 5, 10, 6, 2, 49, 50, 7, 55, 2, 2, 50, 51, 5, 10, 6, 2, 51, 162, 3,
-	2, 2, 2, 52, 53, 7, 27, 2, 2, 53, 54, 5, 10, 6, 2, 54, 55, 7, 55, 2, 2,
-	55, 56, 5, 10, 6, 2, 56, 162, 3, 2, 2, 2, 57, 58, 7, 28, 2, 2, 58, 59,
-	5, 10, 6, 2, 59, 60, 7, 55, 2, 2, 60, 61, 5, 10, 6, 2, 61, 162, 3, 2, 2,
-	2, 62, 63, 7, 29, 2, 2, 63, 64, 5, 10, 6, 2, 64, 65, 7, 55, 2, 2, 65, 66,
-	5, 10, 6, 2, 66, 162, 3, 2, 2, 2, 67, 68, 7, 30, 2, 2, 68, 69, 5, 10, 6,
-	2, 69, 70, 7, 55, 2, 2, 70, 71, 5, 10, 6, 2, 71, 162, 3, 2, 2, 2, 72, 73,
-	7, 31, 2, 2, 73, 74, 5, 10, 6, 2, 74, 75, 7, 55, 2, 2, 75, 76, 5, 10, 6,
-	2, 76, 162, 3, 2, 2, 2, 77, 78, 7, 31, 2, 2, 78, 79, 5, 10, 6, 2, 79, 80,
-	7, 55, 2, 2, 80, 81, 5, 18, 10, 2, 81, 162, 3, 2, 2, 2, 82, 83, 7, 31,
-	2, 2, 83, 84, 5, 22, 12, 2, 84, 85, 7, 55, 2, 2, 85, 86, 7, 8, 2, 2, 86,
-	162, 3, 2, 2, 2, 87, 88, 7, 31, 2, 2, 88, 89, 7, 8, 2, 2, 89, 90, 7, 55,
-	2, 2, 90, 162, 5, 22, 12, 2, 91, 92, 7, 31, 2, 2, 92, 93, 7, 8, 2, 2, 93,
-	94, 7, 55, 2, 2, 94, 95, 7, 51, 2, 2, 95, 96, 5, 16, 9, 2, 96, 97, 7, 52,
-	2, 2, 97, 162, 3, 2, 2, 2, 98, 99, 7, 50, 2, 2, 99, 162, 5, 16, 9, 2, 100,
-	101, 7, 32, 2, 2, 101, 162, 5, 16, 9, 2, 102, 103, 7, 33, 2, 2, 103, 104,
-	7, 8, 2, 2, 104, 105, 7, 55, 2, 2, 105, 162, 5, 18, 10, 2, 106, 107, 7,
-	24, 2, 2, 107, 108, 7, 8, 2, 2, 108, 109, 7, 55, 2, 2, 109, 162, 5, 18,
-	10, 2, 110, 111, 7, 34, 2, 2, 111, 162, 5, 10, 6, 2, 112, 113, 7, 35, 2,
-	2, 113, 162, 5, 10, 6, 2, 114, 115, 7, 36, 2, 2, 115, 162, 5, 10, 6, 2,
-	116, 117, 7, 28, 2, 2, 117, 118, 7, 8, 2, 2, 118, 119, 7, 55, 2, 2, 119,
-	162, 5, 18, 10, 2, 120, 121, 7, 29, 2, 2, 121, 122, 7, 8, 2, 2, 122, 123,
-	7, 55, 2, 2, 123, 162, 5, 18, 10, 2, 124, 125, 7, 30, 2, 2, 125, 126, 7,
-	8, 2, 2, 126, 127, 7, 55, 2, 2, 127, 162, 5, 18, 10, 2, 128, 129, 7, 37,
-	2, 2, 129, 162, 5, 18, 10, 2, 130, 131, 7, 38, 2, 2, 131, 132, 5, 12, 7,
-	2, 132, 133, 7, 55, 2, 2, 133, 134, 5, 20, 11, 2, 134, 162, 3, 2, 2, 2,
-	135, 136, 7, 39, 2, 2, 136, 137, 5, 12, 7, 2, 137, 138, 7, 55, 2, 2, 138,
-	139, 5, 20, 11, 2, 139, 162, 3, 2, 2, 2, 140, 141, 7, 40, 2, 2, 141, 142,
-	5, 12, 7, 2, 142, 143, 7, 55, 2, 2, 143, 144, 5, 20, 11, 2, 144, 162, 3,
-	2, 2, 2, 145, 146, 7, 41, 2, 2, 146, 147, 5, 12, 7, 2, 147, 148, 7, 55,
-	2, 2, 148, 149, 5, 20, 11, 2, 149, 162, 3, 2, 2, 2, 150, 151, 7, 42, 2,
-	2, 151, 162, 5, 10, 6, 2, 152, 153, 7, 43, 2, 2, 153, 154, 7, 8, 2, 2,
-	154, 155, 7, 55, 2, 2, 155, 162, 5, 18, 10, 2, 156, 157, 5, 28, 15, 2,
-	157, 158, 5, 14, 8, 2, 158, 159, 7, 55, 2, 2, 159, 160, 5, 20, 11, 2, 160,
-	162, 3, 2, 2, 2, 161, 42, 3, 2, 2, 2, 161, 47, 3, 2, 2, 2, 161, 52, 3,
-	2, 2, 2, 161, 57, 3, 2, 2, 2, 161, 62, 3, 2, 2, 2, 161, 67, 3, 2, 2, 2,
-	161, 72, 3, 2, 2, 2, 161, 77, 3, 2, 2, 2, 161, 82, 3, 2, 2, 2, 161, 87,
-	3, 2, 2, 2, 161, 91, 3, 2, 2, 2, 161, 98, 3, 2, 2, 2, 161, 100, 3, 2, 2,
-	2, 161, 102, 3, 2, 2, 2, 161, 106, 3, 2, 2, 2, 161, 110, 3, 2, 2, 2, 161,
-	112, 3, 2, 2, 2, 161, 114, 3, 2, 2, 2, 161, 116, 3, 2, 2, 2, 161, 120,
-	3, 2, 2, 2, 161, 124, 3, 2, 2, 2, 161, 128, 3, 2, 2, 2, 161, 130, 3, 2,
-	2, 2, 161, 135, 3, 2, 2, 2, 161, 140, 3, 2, 2, 2, 161, 145, 3, 2, 2, 2,
-	161, 150, 3, 2, 2, 2, 161, 152, 3, 2, 2, 2, 161, 156, 3, 2, 2, 2, 162,
-	5, 3, 2, 2, 2, 163, 164, 7, 44, 2, 2, 164, 165, 5, 10, 6, 2, 165, 166,
-	7, 55, 2, 2, 166, 167, 5, 10, 6, 2, 167, 189, 3, 2, 2, 2, 168, 169, 7,
-	45, 2, 2, 169, 170, 5, 10, 6, 2, 170, 171, 7, 55, 2, 2, 171, 172, 5, 10,
-	6, 2, 172, 189, 3, 2, 2, 2, 173, 174, 7, 46, 2, 2, 174, 189, 5, 10, 6,
-	2, 175, 176, 7, 47, 2, 2, 176, 189, 7, 8, 2, 2, 177, 178, 7, 47, 2, 2,
-	178, 179, 5, 10, 6, 2, 179, 180, 7, 55, 2, 2, 180, 181, 5, 10, 6, 2, 181,
-	189, 3, 2, 2, 2, 182, 183, 7, 48, 2, 2, 183, 184, 5, 10, 6, 2, 184, 185,
-	7, 55, 2, 2, 185, 186, 5, 10, 6, 2, 186, 189, 3, 2, 2, 2, 187, 189, 7,
-	49, 2, 2, 188, 163, 3, 2, 2, 2, 188, 168, 3, 2, 2, 2, 188, 173, 3, 2, 2,
-	2, 188, 175, 3, 2, 2, 2, 188, 177, 3, 2, 2, 2, 188, 182, 3, 2, 2, 2, 188,
-	187, 3, 2, 2, 2, 189, 7, 3, 2, 2, 2, 190, 193, 7, 54, 2, 2, 191, 194, 7,
-	53, 2, 2, 192, 194, 3, 2, 2, 2, 193, 191, 3, 2, 2, 2, 193, 192, 3, 2, 2,
-	2, 194, 9, 3, 2, 2, 2, 195, 196, 9, 2, 2, 2, 196, 11, 3, 2, 2, 2, 197,
-	198, 9, 3, 2, 2, 198, 13, 3, 2, 2, 2, 199, 200, 9, 4, 2, 2, 200, 15, 3,
-	2, 2, 2, 201, 202, 5, 24, 13, 2, 202, 17, 3, 2, 2, 2, 203, 204, 5, 24,
-	13, 2, 204, 19, 3, 2, 2, 2, 205, 206, 5, 24, 13, 2, 206, 21, 3, 2, 2, 2,
-	207, 208, 7, 51, 2, 2, 208, 209, 5, 10, 6, 2, 209, 210, 7, 56, 2, 2, 210,
-	211, 5, 10, 6, 2, 211, 212, 7, 52, 2, 2, 212, 23, 3, 2, 2, 2, 213, 214,
-	9, 5, 2, 2, 214, 25, 3, 2, 2, 2, 215, 216, 7, 54, 2, 2, 216, 217, 9, 6,
-	2, 2, 217, 27, 3, 2, 2, 2, 218, 219, 7, 7, 2, 2, 219, 29, 3, 2, 2, 2, 7,
-	33, 37, 161, 188, 193,
-}
-var deserializer = antlr.NewATNDeserializer(nil)
-var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
-
-var literalNames = []string{
-	"", "'z'", "'nz'", "'c'", "'nc'", "'SKIP'", "'R0'", "'R1'", "'R2'", "'R3'",
-	"'R4'", "'R5'", "'R6'", "'R7'", "'R8'", "'R9'", "'OUT'", "'IN'", "'JSR'",
-	"'PCL'", "'PCM'", "'PCH'", "'ADD'", "'ADC'", "'SUB'", "'SBB'", "'OR'",
-	"'AND'", "'XOR'", "'MOV'", "'JR'", "'CP'", "'INC'", "'DEC'", "'DSZ'", "'EXR'",
-	"'BIT'", "'BSET'", "'BCLR'", "'BTG'", "'RRC'", "'RET'", "'RLC'", "'SL'",
-	"'LSR'", "'CPL'", "'NEG'", "'NOP'", "'LPC'", "'['", "']'", "'string'",
-	"'.'", "','", "':'", "", "", "", "", "", "' '", "'\n'", "'\r'", "'\t'",
-}
-var symbolicNames = []string{
-	"", "", "", "", "", "", "R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7",
-	"R8", "R9", "OUT", "IN", "JSR", "PCL", "PCM", "PCH", "ADD", "ADC", "SUB",
-	"SBB", "OR", "AND", "XOR", "MOV", "JR", "CP", "INC", "DEC", "DSZ", "EXR",
-	"BIT", "BSET", "BCLR", "BTG", "RRC", "RET", "RLC", "SL", "LSR", "CPL",
-	"NEG", "NOP", "LPC", "L_BRACKET", "R_BRACKET", "STRING", "DOT", "COMMA",
-	"COLON", "CHARACTER", "COMMENT", "LINE_COMMENT", "IDENTIFIER", "NUMBER",
-	"WHITESPACE", "NEWLINE", "CARRIAGE", "TAB", "UNKNOWN",
-}
-
-var ruleNames = []string{
-	"start", "instruction", "synthetic_instruction", "macro", "register_symbol",
-	"rg", "flag", "data_byte", "nibble", "quarter", "register_combo", "literal",
-	"directive", "mn_SKIP",
-}
-var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
-
-func init() {
-	for index, ds := range deserializedATN.DecisionToState {
-		decisionToDFA[index] = antlr.NewDFA(ds, index)
-	}
-}
+var _ = sync.Once{}
 
 type AssemblyParser struct {
 	*antlr.BaseParser
 }
 
+var assemblyParserStaticData struct {
+	once                   sync.Once
+	serializedATN          []int32
+	literalNames           []string
+	symbolicNames          []string
+	ruleNames              []string
+	predictionContextCache *antlr.PredictionContextCache
+	atn                    *antlr.ATN
+	decisionToDFA          []*antlr.DFA
+}
+
+func assemblyParserInit() {
+	staticData := &assemblyParserStaticData
+	staticData.literalNames = []string{
+		"", "'z'", "'nz'", "'c'", "'nc'", "'R0'", "'R1'", "'R2'", "'R3'", "'R4'",
+		"'R5'", "'R6'", "'R7'", "'R8'", "'R9'", "'OUT'", "'IN'", "'JSR'", "'PCL'",
+		"'PCM'", "'PCH'", "'ADD'", "'ADC'", "'SUB'", "'SBB'", "'OR'", "'AND'",
+		"'XOR'", "'MOV'", "'JR'", "'CP'", "'INC'", "'DEC'", "'DSZ'", "'EXR'",
+		"'BIT'", "'BSET'", "'BCLR'", "'BTG'", "'RRC'", "'RET'", "'SKIP'", "'RLC'",
+		"'SL'", "'LSR'", "'CPL'", "'NEG'", "'NOP'", "'LPC'", "'['", "']'", "'string'",
+		"'.'", "','", "':'", "", "", "", "", "' '", "'\\n'", "'\\r'", "'\\t'",
+	}
+	staticData.symbolicNames = []string{
+		"", "", "", "", "", "R0", "R1", "R2", "R3", "R4", "R5", "R6", "R7",
+		"R8", "R9", "OUT", "IN", "JSR", "PCL", "PCM", "PCH", "ADD", "ADC", "SUB",
+		"SBB", "OR", "AND", "XOR", "MOV", "JR", "CP", "INC", "DEC", "DSZ", "EXR",
+		"BIT", "BSET", "BCLR", "BTG", "RRC", "RET", "SKIPI", "RLC", "SL", "LSR",
+		"CPL", "NEG", "NOP", "LPC", "L_BRACKET", "R_BRACKET", "STRING", "DOT",
+		"COMMA", "COLON", "CHARACTER", "LINE_COMMENT", "LABEL", "NUMBER", "WHITESPACE",
+		"NEWLINE", "CARRIAGE", "TAB", "UNKNOWN",
+	}
+	staticData.ruleNames = []string{
+		"start", "instruction", "syntheticInstruction", "macro", "registerSymbol",
+		"rg", "flag", "dataByte", "nibble", "quarter", "registerCombo", "literal",
+		"directive",
+	}
+	staticData.predictionContextCache = antlr.NewPredictionContextCache()
+	staticData.serializedATN = []int32{
+		4, 1, 63, 222, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7, 9, 2, 10, 7,
+		10, 2, 11, 7, 11, 2, 12, 7, 12, 1, 0, 3, 0, 28, 8, 0, 1, 0, 1, 0, 3, 0,
+		32, 8, 0, 5, 0, 34, 8, 0, 10, 0, 12, 0, 37, 9, 0, 1, 0, 1, 0, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 3, 1, 165, 8, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+		2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
+		2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3, 2, 192, 8, 2, 1, 3, 1, 3, 1,
+		3, 3, 3, 197, 8, 3, 1, 4, 1, 4, 1, 5, 1, 5, 1, 6, 1, 6, 1, 7, 1, 7, 1,
+		8, 1, 8, 1, 9, 1, 9, 1, 10, 1, 10, 1, 10, 1, 10, 1, 10, 1, 10, 1, 11, 1,
+		11, 1, 12, 1, 12, 1, 12, 1, 12, 0, 0, 13, 0, 2, 4, 6, 8, 10, 12, 14, 16,
+		18, 20, 22, 24, 0, 5, 1, 0, 5, 20, 1, 0, 5, 7, 1, 0, 1, 4, 2, 0, 55, 55,
+		58, 58, 2, 0, 51, 51, 57, 57, 247, 0, 35, 1, 0, 0, 0, 2, 164, 1, 0, 0,
+		0, 4, 191, 1, 0, 0, 0, 6, 193, 1, 0, 0, 0, 8, 198, 1, 0, 0, 0, 10, 200,
+		1, 0, 0, 0, 12, 202, 1, 0, 0, 0, 14, 204, 1, 0, 0, 0, 16, 206, 1, 0, 0,
+		0, 18, 208, 1, 0, 0, 0, 20, 210, 1, 0, 0, 0, 22, 216, 1, 0, 0, 0, 24, 218,
+		1, 0, 0, 0, 26, 28, 3, 24, 12, 0, 27, 26, 1, 0, 0, 0, 27, 28, 1, 0, 0,
+		0, 28, 31, 1, 0, 0, 0, 29, 32, 3, 2, 1, 0, 30, 32, 3, 4, 2, 0, 31, 29,
+		1, 0, 0, 0, 31, 30, 1, 0, 0, 0, 32, 34, 1, 0, 0, 0, 33, 27, 1, 0, 0, 0,
+		34, 37, 1, 0, 0, 0, 35, 33, 1, 0, 0, 0, 35, 36, 1, 0, 0, 0, 36, 38, 1,
+		0, 0, 0, 37, 35, 1, 0, 0, 0, 38, 39, 5, 0, 0, 1, 39, 1, 1, 0, 0, 0, 40,
+		41, 5, 21, 0, 0, 41, 42, 3, 8, 4, 0, 42, 43, 5, 53, 0, 0, 43, 44, 3, 8,
+		4, 0, 44, 165, 1, 0, 0, 0, 45, 46, 5, 22, 0, 0, 46, 47, 3, 8, 4, 0, 47,
+		48, 5, 53, 0, 0, 48, 49, 3, 8, 4, 0, 49, 165, 1, 0, 0, 0, 50, 51, 5, 23,
+		0, 0, 51, 52, 3, 8, 4, 0, 52, 53, 5, 53, 0, 0, 53, 54, 3, 8, 4, 0, 54,
+		165, 1, 0, 0, 0, 55, 56, 5, 24, 0, 0, 56, 57, 3, 8, 4, 0, 57, 58, 5, 53,
+		0, 0, 58, 59, 3, 8, 4, 0, 59, 165, 1, 0, 0, 0, 60, 61, 5, 25, 0, 0, 61,
+		62, 3, 8, 4, 0, 62, 63, 5, 53, 0, 0, 63, 64, 3, 8, 4, 0, 64, 165, 1, 0,
+		0, 0, 65, 66, 5, 26, 0, 0, 66, 67, 3, 8, 4, 0, 67, 68, 5, 53, 0, 0, 68,
+		69, 3, 8, 4, 0, 69, 165, 1, 0, 0, 0, 70, 71, 5, 27, 0, 0, 71, 72, 3, 8,
+		4, 0, 72, 73, 5, 53, 0, 0, 73, 74, 3, 8, 4, 0, 74, 165, 1, 0, 0, 0, 75,
+		76, 5, 28, 0, 0, 76, 77, 3, 8, 4, 0, 77, 78, 5, 53, 0, 0, 78, 79, 3, 8,
+		4, 0, 79, 165, 1, 0, 0, 0, 80, 81, 5, 28, 0, 0, 81, 82, 3, 8, 4, 0, 82,
+		83, 5, 53, 0, 0, 83, 84, 3, 16, 8, 0, 84, 165, 1, 0, 0, 0, 85, 86, 5, 28,
+		0, 0, 86, 87, 3, 20, 10, 0, 87, 88, 5, 53, 0, 0, 88, 89, 5, 5, 0, 0, 89,
+		165, 1, 0, 0, 0, 90, 91, 5, 28, 0, 0, 91, 92, 5, 5, 0, 0, 92, 93, 5, 53,
+		0, 0, 93, 165, 3, 20, 10, 0, 94, 95, 5, 28, 0, 0, 95, 96, 5, 5, 0, 0, 96,
+		97, 5, 53, 0, 0, 97, 98, 5, 49, 0, 0, 98, 99, 3, 14, 7, 0, 99, 100, 5,
+		50, 0, 0, 100, 165, 1, 0, 0, 0, 101, 102, 5, 48, 0, 0, 102, 165, 3, 14,
+		7, 0, 103, 104, 5, 29, 0, 0, 104, 165, 3, 14, 7, 0, 105, 106, 5, 30, 0,
+		0, 106, 107, 5, 5, 0, 0, 107, 108, 5, 53, 0, 0, 108, 165, 3, 16, 8, 0,
+		109, 110, 5, 21, 0, 0, 110, 111, 5, 5, 0, 0, 111, 112, 5, 53, 0, 0, 112,
+		165, 3, 16, 8, 0, 113, 114, 5, 31, 0, 0, 114, 165, 3, 8, 4, 0, 115, 116,
+		5, 32, 0, 0, 116, 165, 3, 8, 4, 0, 117, 118, 5, 33, 0, 0, 118, 165, 3,
+		8, 4, 0, 119, 120, 5, 25, 0, 0, 120, 121, 5, 5, 0, 0, 121, 122, 5, 53,
+		0, 0, 122, 165, 3, 16, 8, 0, 123, 124, 5, 26, 0, 0, 124, 125, 5, 5, 0,
+		0, 125, 126, 5, 53, 0, 0, 126, 165, 3, 16, 8, 0, 127, 128, 5, 27, 0, 0,
+		128, 129, 5, 5, 0, 0, 129, 130, 5, 53, 0, 0, 130, 165, 3, 16, 8, 0, 131,
+		132, 5, 34, 0, 0, 132, 165, 3, 16, 8, 0, 133, 134, 5, 35, 0, 0, 134, 135,
+		3, 10, 5, 0, 135, 136, 5, 53, 0, 0, 136, 137, 3, 18, 9, 0, 137, 165, 1,
+		0, 0, 0, 138, 139, 5, 36, 0, 0, 139, 140, 3, 10, 5, 0, 140, 141, 5, 53,
+		0, 0, 141, 142, 3, 18, 9, 0, 142, 165, 1, 0, 0, 0, 143, 144, 5, 37, 0,
+		0, 144, 145, 3, 10, 5, 0, 145, 146, 5, 53, 0, 0, 146, 147, 3, 18, 9, 0,
+		147, 165, 1, 0, 0, 0, 148, 149, 5, 38, 0, 0, 149, 150, 3, 10, 5, 0, 150,
+		151, 5, 53, 0, 0, 151, 152, 3, 18, 9, 0, 152, 165, 1, 0, 0, 0, 153, 154,
+		5, 39, 0, 0, 154, 165, 3, 8, 4, 0, 155, 156, 5, 40, 0, 0, 156, 157, 5,
+		5, 0, 0, 157, 158, 5, 53, 0, 0, 158, 165, 3, 16, 8, 0, 159, 160, 5, 41,
+		0, 0, 160, 161, 3, 12, 6, 0, 161, 162, 5, 53, 0, 0, 162, 163, 3, 18, 9,
+		0, 163, 165, 1, 0, 0, 0, 164, 40, 1, 0, 0, 0, 164, 45, 1, 0, 0, 0, 164,
+		50, 1, 0, 0, 0, 164, 55, 1, 0, 0, 0, 164, 60, 1, 0, 0, 0, 164, 65, 1, 0,
+		0, 0, 164, 70, 1, 0, 0, 0, 164, 75, 1, 0, 0, 0, 164, 80, 1, 0, 0, 0, 164,
+		85, 1, 0, 0, 0, 164, 90, 1, 0, 0, 0, 164, 94, 1, 0, 0, 0, 164, 101, 1,
+		0, 0, 0, 164, 103, 1, 0, 0, 0, 164, 105, 1, 0, 0, 0, 164, 109, 1, 0, 0,
+		0, 164, 113, 1, 0, 0, 0, 164, 115, 1, 0, 0, 0, 164, 117, 1, 0, 0, 0, 164,
+		119, 1, 0, 0, 0, 164, 123, 1, 0, 0, 0, 164, 127, 1, 0, 0, 0, 164, 131,
+		1, 0, 0, 0, 164, 133, 1, 0, 0, 0, 164, 138, 1, 0, 0, 0, 164, 143, 1, 0,
+		0, 0, 164, 148, 1, 0, 0, 0, 164, 153, 1, 0, 0, 0, 164, 155, 1, 0, 0, 0,
+		164, 159, 1, 0, 0, 0, 165, 3, 1, 0, 0, 0, 166, 167, 5, 42, 0, 0, 167, 168,
+		3, 8, 4, 0, 168, 169, 5, 53, 0, 0, 169, 170, 3, 8, 4, 0, 170, 192, 1, 0,
+		0, 0, 171, 172, 5, 43, 0, 0, 172, 173, 3, 8, 4, 0, 173, 174, 5, 53, 0,
+		0, 174, 175, 3, 8, 4, 0, 175, 192, 1, 0, 0, 0, 176, 177, 5, 44, 0, 0, 177,
+		192, 3, 8, 4, 0, 178, 179, 5, 45, 0, 0, 179, 192, 5, 5, 0, 0, 180, 181,
+		5, 45, 0, 0, 181, 182, 3, 8, 4, 0, 182, 183, 5, 53, 0, 0, 183, 184, 3,
+		8, 4, 0, 184, 192, 1, 0, 0, 0, 185, 186, 5, 46, 0, 0, 186, 187, 3, 8, 4,
+		0, 187, 188, 5, 53, 0, 0, 188, 189, 3, 8, 4, 0, 189, 192, 1, 0, 0, 0, 190,
+		192, 5, 47, 0, 0, 191, 166, 1, 0, 0, 0, 191, 171, 1, 0, 0, 0, 191, 176,
+		1, 0, 0, 0, 191, 178, 1, 0, 0, 0, 191, 180, 1, 0, 0, 0, 191, 185, 1, 0,
+		0, 0, 191, 190, 1, 0, 0, 0, 192, 5, 1, 0, 0, 0, 193, 196, 5, 52, 0, 0,
+		194, 197, 5, 51, 0, 0, 195, 197, 1, 0, 0, 0, 196, 194, 1, 0, 0, 0, 196,
+		195, 1, 0, 0, 0, 197, 7, 1, 0, 0, 0, 198, 199, 7, 0, 0, 0, 199, 9, 1, 0,
+		0, 0, 200, 201, 7, 1, 0, 0, 201, 11, 1, 0, 0, 0, 202, 203, 7, 2, 0, 0,
+		203, 13, 1, 0, 0, 0, 204, 205, 3, 22, 11, 0, 205, 15, 1, 0, 0, 0, 206,
+		207, 3, 22, 11, 0, 207, 17, 1, 0, 0, 0, 208, 209, 3, 22, 11, 0, 209, 19,
+		1, 0, 0, 0, 210, 211, 5, 49, 0, 0, 211, 212, 3, 8, 4, 0, 212, 213, 5, 54,
+		0, 0, 213, 214, 3, 8, 4, 0, 214, 215, 5, 50, 0, 0, 215, 21, 1, 0, 0, 0,
+		216, 217, 7, 3, 0, 0, 217, 23, 1, 0, 0, 0, 218, 219, 5, 52, 0, 0, 219,
+		220, 7, 4, 0, 0, 220, 25, 1, 0, 0, 0, 6, 27, 31, 35, 164, 191, 196,
+	}
+	deserializer := antlr.NewATNDeserializer(nil)
+	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
+	atn := staticData.atn
+	staticData.decisionToDFA = make([]*antlr.DFA, len(atn.DecisionToState))
+	decisionToDFA := staticData.decisionToDFA
+	for index, state := range atn.DecisionToState {
+		decisionToDFA[index] = antlr.NewDFA(state, index)
+	}
+}
+
+// AssemblyParserInit initializes any static state used to implement AssemblyParser. By default the
+// static state used to implement the parser is lazily initialized during the first call to
+// NewAssemblyParser(). You can call this function if you wish to initialize the static state ahead
+// of time.
+func AssemblyParserInit() {
+	staticData := &assemblyParserStaticData
+	staticData.once.Do(assemblyParserInit)
+}
+
+// NewAssemblyParser produces a new parser instance for the optional input antlr.TokenStream.
 func NewAssemblyParser(input antlr.TokenStream) *AssemblyParser {
+	AssemblyParserInit()
 	this := new(AssemblyParser)
-
 	this.BaseParser = antlr.NewBaseParser(input)
-
-	this.Interpreter = antlr.NewParserATNSimulator(this, deserializedATN, decisionToDFA, antlr.NewPredictionContextCache())
-	this.RuleNames = ruleNames
-	this.LiteralNames = literalNames
-	this.SymbolicNames = symbolicNames
-	this.GrammarFileName = "Assembly.g4"
+	staticData := &assemblyParserStaticData
+	this.Interpreter = antlr.NewParserATNSimulator(this, staticData.atn, staticData.decisionToDFA, staticData.predictionContextCache)
+	this.RuleNames = staticData.ruleNames
+	this.LiteralNames = staticData.literalNames
+	this.SymbolicNames = staticData.symbolicNames
+	this.GrammarFileName = "java-escape"
 
 	return this
 }
@@ -173,43 +194,43 @@ const (
 	AssemblyParserT__1         = 2
 	AssemblyParserT__2         = 3
 	AssemblyParserT__3         = 4
-	AssemblyParserT__4         = 5
-	AssemblyParserR0           = 6
-	AssemblyParserR1           = 7
-	AssemblyParserR2           = 8
-	AssemblyParserR3           = 9
-	AssemblyParserR4           = 10
-	AssemblyParserR5           = 11
-	AssemblyParserR6           = 12
-	AssemblyParserR7           = 13
-	AssemblyParserR8           = 14
-	AssemblyParserR9           = 15
-	AssemblyParserOUT          = 16
-	AssemblyParserIN           = 17
-	AssemblyParserJSR          = 18
-	AssemblyParserPCL          = 19
-	AssemblyParserPCM          = 20
-	AssemblyParserPCH          = 21
-	AssemblyParserADD          = 22
-	AssemblyParserADC          = 23
-	AssemblyParserSUB          = 24
-	AssemblyParserSBB          = 25
-	AssemblyParserOR           = 26
-	AssemblyParserAND          = 27
-	AssemblyParserXOR          = 28
-	AssemblyParserMOV          = 29
-	AssemblyParserJR           = 30
-	AssemblyParserCP           = 31
-	AssemblyParserINC          = 32
-	AssemblyParserDEC          = 33
-	AssemblyParserDSZ          = 34
-	AssemblyParserEXR          = 35
-	AssemblyParserBIT          = 36
-	AssemblyParserBSET         = 37
-	AssemblyParserBCLR         = 38
-	AssemblyParserBTG          = 39
-	AssemblyParserRRC          = 40
-	AssemblyParserRET          = 41
+	AssemblyParserR0           = 5
+	AssemblyParserR1           = 6
+	AssemblyParserR2           = 7
+	AssemblyParserR3           = 8
+	AssemblyParserR4           = 9
+	AssemblyParserR5           = 10
+	AssemblyParserR6           = 11
+	AssemblyParserR7           = 12
+	AssemblyParserR8           = 13
+	AssemblyParserR9           = 14
+	AssemblyParserOUT          = 15
+	AssemblyParserIN           = 16
+	AssemblyParserJSR          = 17
+	AssemblyParserPCL          = 18
+	AssemblyParserPCM          = 19
+	AssemblyParserPCH          = 20
+	AssemblyParserADD          = 21
+	AssemblyParserADC          = 22
+	AssemblyParserSUB          = 23
+	AssemblyParserSBB          = 24
+	AssemblyParserOR           = 25
+	AssemblyParserAND          = 26
+	AssemblyParserXOR          = 27
+	AssemblyParserMOV          = 28
+	AssemblyParserJR           = 29
+	AssemblyParserCP           = 30
+	AssemblyParserINC          = 31
+	AssemblyParserDEC          = 32
+	AssemblyParserDSZ          = 33
+	AssemblyParserEXR          = 34
+	AssemblyParserBIT          = 35
+	AssemblyParserBSET         = 36
+	AssemblyParserBCLR         = 37
+	AssemblyParserBTG          = 38
+	AssemblyParserRRC          = 39
+	AssemblyParserRET          = 40
+	AssemblyParserSKIPI        = 41
 	AssemblyParserRLC          = 42
 	AssemblyParserSL           = 43
 	AssemblyParserLSR          = 44
@@ -224,33 +245,31 @@ const (
 	AssemblyParserCOMMA        = 53
 	AssemblyParserCOLON        = 54
 	AssemblyParserCHARACTER    = 55
-	AssemblyParserCOMMENT      = 56
-	AssemblyParserLINE_COMMENT = 57
-	AssemblyParserIDENTIFIER   = 58
-	AssemblyParserNUMBER       = 59
-	AssemblyParserWHITESPACE   = 60
-	AssemblyParserNEWLINE      = 61
-	AssemblyParserCARRIAGE     = 62
-	AssemblyParserTAB          = 63
-	AssemblyParserUNKNOWN      = 64
+	AssemblyParserLINE_COMMENT = 56
+	AssemblyParserLABEL        = 57
+	AssemblyParserNUMBER       = 58
+	AssemblyParserWHITESPACE   = 59
+	AssemblyParserNEWLINE      = 60
+	AssemblyParserCARRIAGE     = 61
+	AssemblyParserTAB          = 62
+	AssemblyParserUNKNOWN      = 63
 )
 
 // AssemblyParser rules.
 const (
-	AssemblyParserRULE_start                 = 0
-	AssemblyParserRULE_instruction           = 1
-	AssemblyParserRULE_synthetic_instruction = 2
-	AssemblyParserRULE_macro                 = 3
-	AssemblyParserRULE_register_symbol       = 4
-	AssemblyParserRULE_rg                    = 5
-	AssemblyParserRULE_flag                  = 6
-	AssemblyParserRULE_data_byte             = 7
-	AssemblyParserRULE_nibble                = 8
-	AssemblyParserRULE_quarter               = 9
-	AssemblyParserRULE_register_combo        = 10
-	AssemblyParserRULE_literal               = 11
-	AssemblyParserRULE_directive             = 12
-	AssemblyParserRULE_mn_SKIP               = 13
+	AssemblyParserRULE_start                = 0
+	AssemblyParserRULE_instruction          = 1
+	AssemblyParserRULE_syntheticInstruction = 2
+	AssemblyParserRULE_macro                = 3
+	AssemblyParserRULE_registerSymbol       = 4
+	AssemblyParserRULE_rg                   = 5
+	AssemblyParserRULE_flag                 = 6
+	AssemblyParserRULE_dataByte             = 7
+	AssemblyParserRULE_nibble               = 8
+	AssemblyParserRULE_quarter              = 9
+	AssemblyParserRULE_registerCombo        = 10
+	AssemblyParserRULE_literal              = 11
+	AssemblyParserRULE_directive            = 12
 )
 
 // IStartContext is an interface to support dynamic dispatch.
@@ -295,36 +314,21 @@ func (s *StartContext) EOF() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserEOF, 0)
 }
 
-func (s *StartContext) AllDirective() []IDirectiveContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IDirectiveContext)(nil)).Elem())
-	var tst = make([]IDirectiveContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IDirectiveContext)
+func (s *StartContext) AllInstruction() []IInstructionContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IInstructionContext); ok {
+			len++
 		}
 	}
 
-	return tst
-}
-
-func (s *StartContext) Directive(i int) IDirectiveContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IDirectiveContext)(nil)).Elem(), i)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IDirectiveContext)
-}
-
-func (s *StartContext) AllInstruction() []IInstructionContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IInstructionContext)(nil)).Elem())
-	var tst = make([]IInstructionContext, len(ts))
-
-	for i, t := range ts {
-		if t != nil {
+	tst := make([]IInstructionContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IInstructionContext); ok {
 			tst[i] = t.(IInstructionContext)
+			i++
 		}
 	}
 
@@ -332,7 +336,17 @@ func (s *StartContext) AllInstruction() []IInstructionContext {
 }
 
 func (s *StartContext) Instruction(i int) IInstructionContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IInstructionContext)(nil)).Elem(), i)
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IInstructionContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
 
 	if t == nil {
 		return nil
@@ -341,27 +355,86 @@ func (s *StartContext) Instruction(i int) IInstructionContext {
 	return t.(IInstructionContext)
 }
 
-func (s *StartContext) AllSynthetic_instruction() []ISynthetic_instructionContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*ISynthetic_instructionContext)(nil)).Elem())
-	var tst = make([]ISynthetic_instructionContext, len(ts))
+func (s *StartContext) AllSyntheticInstruction() []ISyntheticInstructionContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(ISyntheticInstructionContext); ok {
+			len++
+		}
+	}
 
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(ISynthetic_instructionContext)
+	tst := make([]ISyntheticInstructionContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(ISyntheticInstructionContext); ok {
+			tst[i] = t.(ISyntheticInstructionContext)
+			i++
 		}
 	}
 
 	return tst
 }
 
-func (s *StartContext) Synthetic_instruction(i int) ISynthetic_instructionContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ISynthetic_instructionContext)(nil)).Elem(), i)
+func (s *StartContext) SyntheticInstruction(i int) ISyntheticInstructionContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISyntheticInstructionContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(ISynthetic_instructionContext)
+	return t.(ISyntheticInstructionContext)
+}
+
+func (s *StartContext) AllDirective() []IDirectiveContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IDirectiveContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IDirectiveContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IDirectiveContext); ok {
+			tst[i] = t.(IDirectiveContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *StartContext) Directive(i int) IDirectiveContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IDirectiveContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IDirectiveContext)
 }
 
 func (s *StartContext) GetRuleContext() antlr.RuleContext {
@@ -385,6 +458,9 @@ func (s *StartContext) ExitRule(listener antlr.ParseTreeListener) {
 }
 
 func (p *AssemblyParser) Start() (localctx IStartContext) {
+	this := p
+	_ = this
+
 	localctx = NewStartContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 0, AssemblyParserRULE_start)
 	var _la int
@@ -410,16 +486,23 @@ func (p *AssemblyParser) Start() (localctx IStartContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == AssemblyParserDOT {
-		{
-			p.SetState(28)
-			p.Directive()
+	for (int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&5066549578694656) != 0 {
+		p.SetState(27)
+		p.GetErrorHandler().Sync(p)
+		_la = p.GetTokenStream().LA(1)
+
+		if _la == AssemblyParserDOT {
+			{
+				p.SetState(26)
+				p.Directive()
+			}
+
 		}
 		p.SetState(31)
 		p.GetErrorHandler().Sync(p)
 
 		switch p.GetTokenStream().LA(1) {
-		case AssemblyParserT__4, AssemblyParserADD, AssemblyParserADC, AssemblyParserSBB, AssemblyParserOR, AssemblyParserAND, AssemblyParserXOR, AssemblyParserMOV, AssemblyParserJR, AssemblyParserCP, AssemblyParserINC, AssemblyParserDEC, AssemblyParserDSZ, AssemblyParserEXR, AssemblyParserBIT, AssemblyParserBSET, AssemblyParserBCLR, AssemblyParserBTG, AssemblyParserRRC, AssemblyParserRET, AssemblyParserLPC:
+		case AssemblyParserADD, AssemblyParserADC, AssemblyParserSUB, AssemblyParserSBB, AssemblyParserOR, AssemblyParserAND, AssemblyParserXOR, AssemblyParserMOV, AssemblyParserJR, AssemblyParserCP, AssemblyParserINC, AssemblyParserDEC, AssemblyParserDSZ, AssemblyParserEXR, AssemblyParserBIT, AssemblyParserBSET, AssemblyParserBCLR, AssemblyParserBTG, AssemblyParserRRC, AssemblyParserRET, AssemblyParserSKIPI, AssemblyParserLPC:
 			{
 				p.SetState(29)
 				p.Instruction()
@@ -428,7 +511,7 @@ func (p *AssemblyParser) Start() (localctx IStartContext) {
 		case AssemblyParserRLC, AssemblyParserSL, AssemblyParserLSR, AssemblyParserCPL, AssemblyParserNEG, AssemblyParserNOP:
 			{
 				p.SetState(30)
-				p.Synthetic_instruction()
+				p.SyntheticInstruction()
 			}
 
 		default:
@@ -489,27 +572,45 @@ func (s *InstructionContext) ADD() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserADD, 0)
 }
 
-func (s *InstructionContext) AllRegister_symbol() []IRegister_symbolContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IRegister_symbolContext)(nil)).Elem())
-	var tst = make([]IRegister_symbolContext, len(ts))
+func (s *InstructionContext) AllRegisterSymbol() []IRegisterSymbolContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IRegisterSymbolContext); ok {
+			len++
+		}
+	}
 
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IRegister_symbolContext)
+	tst := make([]IRegisterSymbolContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IRegisterSymbolContext); ok {
+			tst[i] = t.(IRegisterSymbolContext)
+			i++
 		}
 	}
 
 	return tst
 }
 
-func (s *InstructionContext) Register_symbol(i int) IRegister_symbolContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IRegister_symbolContext)(nil)).Elem(), i)
+func (s *InstructionContext) RegisterSymbol(i int) IRegisterSymbolContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IRegisterSymbolContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IRegister_symbolContext)
+	return t.(IRegisterSymbolContext)
 }
 
 func (s *InstructionContext) COMMA() antlr.TerminalNode {
@@ -518,6 +619,10 @@ func (s *InstructionContext) COMMA() antlr.TerminalNode {
 
 func (s *InstructionContext) ADC() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserADC, 0)
+}
+
+func (s *InstructionContext) SUB() antlr.TerminalNode {
+	return s.GetToken(AssemblyParserSUB, 0)
 }
 
 func (s *InstructionContext) SBB() antlr.TerminalNode {
@@ -541,7 +646,13 @@ func (s *InstructionContext) MOV() antlr.TerminalNode {
 }
 
 func (s *InstructionContext) Nibble() INibbleContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*INibbleContext)(nil)).Elem(), 0)
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(INibbleContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
 
 	if t == nil {
 		return nil
@@ -550,14 +661,20 @@ func (s *InstructionContext) Nibble() INibbleContext {
 	return t.(INibbleContext)
 }
 
-func (s *InstructionContext) Register_combo() IRegister_comboContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IRegister_comboContext)(nil)).Elem(), 0)
+func (s *InstructionContext) RegisterCombo() IRegisterComboContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IRegisterComboContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IRegister_comboContext)
+	return t.(IRegisterComboContext)
 }
 
 func (s *InstructionContext) R0() antlr.TerminalNode {
@@ -568,14 +685,20 @@ func (s *InstructionContext) L_BRACKET() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserL_BRACKET, 0)
 }
 
-func (s *InstructionContext) Data_byte() IData_byteContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IData_byteContext)(nil)).Elem(), 0)
+func (s *InstructionContext) DataByte() IDataByteContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IDataByteContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IData_byteContext)
+	return t.(IDataByteContext)
 }
 
 func (s *InstructionContext) R_BRACKET() antlr.TerminalNode {
@@ -615,7 +738,13 @@ func (s *InstructionContext) BIT() antlr.TerminalNode {
 }
 
 func (s *InstructionContext) Rg() IRgContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IRgContext)(nil)).Elem(), 0)
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IRgContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
 
 	if t == nil {
 		return nil
@@ -625,7 +754,13 @@ func (s *InstructionContext) Rg() IRgContext {
 }
 
 func (s *InstructionContext) Quarter() IQuarterContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IQuarterContext)(nil)).Elem(), 0)
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IQuarterContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
 
 	if t == nil {
 		return nil
@@ -654,18 +789,18 @@ func (s *InstructionContext) RET() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserRET, 0)
 }
 
-func (s *InstructionContext) Mn_SKIP() IMn_SKIPContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IMn_SKIPContext)(nil)).Elem(), 0)
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IMn_SKIPContext)
+func (s *InstructionContext) SKIPI() antlr.TerminalNode {
+	return s.GetToken(AssemblyParserSKIPI, 0)
 }
 
 func (s *InstructionContext) Flag() IFlagContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IFlagContext)(nil)).Elem(), 0)
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IFlagContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
 
 	if t == nil {
 		return nil
@@ -695,6 +830,9 @@ func (s *InstructionContext) ExitRule(listener antlr.ParseTreeListener) {
 }
 
 func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
+	this := p
+	_ = this
+
 	localctx = NewInstructionContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 2, AssemblyParserRULE_instruction)
 
@@ -714,9 +852,9 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 	}()
 
-	p.SetState(159)
+	p.SetState(164)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 2, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
@@ -725,7 +863,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(41)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(42)
@@ -733,7 +871,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(43)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 
 	case 2:
@@ -744,7 +882,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(46)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(47)
@@ -752,18 +890,18 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(48)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 
 	case 3:
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(50)
-			p.Match(AssemblyParserSBB)
+			p.Match(AssemblyParserSUB)
 		}
 		{
 			p.SetState(51)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(52)
@@ -771,18 +909,18 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(53)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 
 	case 4:
 		p.EnterOuterAlt(localctx, 4)
 		{
 			p.SetState(55)
-			p.Match(AssemblyParserOR)
+			p.Match(AssemblyParserSBB)
 		}
 		{
 			p.SetState(56)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(57)
@@ -790,18 +928,18 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(58)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 
 	case 5:
 		p.EnterOuterAlt(localctx, 5)
 		{
 			p.SetState(60)
-			p.Match(AssemblyParserAND)
+			p.Match(AssemblyParserOR)
 		}
 		{
 			p.SetState(61)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(62)
@@ -809,18 +947,18 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(63)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 
 	case 6:
 		p.EnterOuterAlt(localctx, 6)
 		{
 			p.SetState(65)
-			p.Match(AssemblyParserXOR)
+			p.Match(AssemblyParserAND)
 		}
 		{
 			p.SetState(66)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(67)
@@ -828,18 +966,18 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(68)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 
 	case 7:
 		p.EnterOuterAlt(localctx, 7)
 		{
 			p.SetState(70)
-			p.Match(AssemblyParserMOV)
+			p.Match(AssemblyParserXOR)
 		}
 		{
 			p.SetState(71)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(72)
@@ -847,7 +985,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(73)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 
 	case 8:
@@ -858,7 +996,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(76)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(77)
@@ -866,7 +1004,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(78)
-			p.Nibble()
+			p.RegisterSymbol()
 		}
 
 	case 9:
@@ -877,7 +1015,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(81)
-			p.Register_combo()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(82)
@@ -885,7 +1023,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(83)
-			p.Match(AssemblyParserR0)
+			p.Nibble()
 		}
 
 	case 10:
@@ -896,7 +1034,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(86)
-			p.Match(AssemblyParserR0)
+			p.RegisterCombo()
 		}
 		{
 			p.SetState(87)
@@ -904,221 +1042,221 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		}
 		{
 			p.SetState(88)
-			p.Register_combo()
+			p.Match(AssemblyParserR0)
 		}
 
 	case 11:
 		p.EnterOuterAlt(localctx, 11)
 		{
-			p.SetState(89)
+			p.SetState(90)
 			p.Match(AssemblyParserMOV)
 		}
 		{
-			p.SetState(90)
+			p.SetState(91)
 			p.Match(AssemblyParserR0)
 		}
 		{
-			p.SetState(91)
+			p.SetState(92)
 			p.Match(AssemblyParserCOMMA)
 		}
 		{
-			p.SetState(92)
-			p.Match(AssemblyParserL_BRACKET)
-		}
-		{
 			p.SetState(93)
-			p.Data_byte()
-		}
-		{
-			p.SetState(94)
-			p.Match(AssemblyParserR_BRACKET)
+			p.RegisterCombo()
 		}
 
 	case 12:
 		p.EnterOuterAlt(localctx, 12)
 		{
+			p.SetState(94)
+			p.Match(AssemblyParserMOV)
+		}
+		{
+			p.SetState(95)
+			p.Match(AssemblyParserR0)
+		}
+		{
 			p.SetState(96)
-			p.Match(AssemblyParserLPC)
+			p.Match(AssemblyParserCOMMA)
 		}
 		{
 			p.SetState(97)
-			p.Data_byte()
+			p.Match(AssemblyParserL_BRACKET)
+		}
+		{
+			p.SetState(98)
+			p.DataByte()
+		}
+		{
+			p.SetState(99)
+			p.Match(AssemblyParserR_BRACKET)
 		}
 
 	case 13:
 		p.EnterOuterAlt(localctx, 13)
 		{
-			p.SetState(98)
-			p.Match(AssemblyParserJR)
+			p.SetState(101)
+			p.Match(AssemblyParserLPC)
 		}
 		{
-			p.SetState(99)
-			p.Data_byte()
+			p.SetState(102)
+			p.DataByte()
 		}
 
 	case 14:
 		p.EnterOuterAlt(localctx, 14)
 		{
-			p.SetState(100)
-			p.Match(AssemblyParserCP)
-		}
-		{
-			p.SetState(101)
-			p.Match(AssemblyParserR0)
-		}
-		{
-			p.SetState(102)
-			p.Match(AssemblyParserCOMMA)
-		}
-		{
 			p.SetState(103)
-			p.Nibble()
+			p.Match(AssemblyParserJR)
+		}
+		{
+			p.SetState(104)
+			p.DataByte()
 		}
 
 	case 15:
 		p.EnterOuterAlt(localctx, 15)
 		{
-			p.SetState(104)
-			p.Match(AssemblyParserADD)
-		}
-		{
 			p.SetState(105)
-			p.Match(AssemblyParserR0)
+			p.Match(AssemblyParserCP)
 		}
 		{
 			p.SetState(106)
-			p.Match(AssemblyParserCOMMA)
+			p.Match(AssemblyParserR0)
 		}
 		{
 			p.SetState(107)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(108)
 			p.Nibble()
 		}
 
 	case 16:
 		p.EnterOuterAlt(localctx, 16)
 		{
-			p.SetState(108)
-			p.Match(AssemblyParserINC)
+			p.SetState(109)
+			p.Match(AssemblyParserADD)
 		}
 		{
-			p.SetState(109)
-			p.Register_symbol()
+			p.SetState(110)
+			p.Match(AssemblyParserR0)
+		}
+		{
+			p.SetState(111)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(112)
+			p.Nibble()
 		}
 
 	case 17:
 		p.EnterOuterAlt(localctx, 17)
 		{
-			p.SetState(110)
-			p.Match(AssemblyParserDEC)
+			p.SetState(113)
+			p.Match(AssemblyParserINC)
 		}
 		{
-			p.SetState(111)
-			p.Register_symbol()
+			p.SetState(114)
+			p.RegisterSymbol()
 		}
 
 	case 18:
 		p.EnterOuterAlt(localctx, 18)
 		{
-			p.SetState(112)
-			p.Match(AssemblyParserDSZ)
+			p.SetState(115)
+			p.Match(AssemblyParserDEC)
 		}
 		{
-			p.SetState(113)
-			p.Register_symbol()
+			p.SetState(116)
+			p.RegisterSymbol()
 		}
 
 	case 19:
 		p.EnterOuterAlt(localctx, 19)
 		{
-			p.SetState(114)
-			p.Match(AssemblyParserOR)
-		}
-		{
-			p.SetState(115)
-			p.Match(AssemblyParserR0)
-		}
-		{
-			p.SetState(116)
-			p.Match(AssemblyParserCOMMA)
-		}
-		{
 			p.SetState(117)
-			p.Nibble()
+			p.Match(AssemblyParserDSZ)
+		}
+		{
+			p.SetState(118)
+			p.RegisterSymbol()
 		}
 
 	case 20:
 		p.EnterOuterAlt(localctx, 20)
 		{
-			p.SetState(118)
-			p.Match(AssemblyParserAND)
-		}
-		{
 			p.SetState(119)
-			p.Match(AssemblyParserR0)
+			p.Match(AssemblyParserOR)
 		}
 		{
 			p.SetState(120)
-			p.Match(AssemblyParserCOMMA)
+			p.Match(AssemblyParserR0)
 		}
 		{
 			p.SetState(121)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(122)
 			p.Nibble()
 		}
 
 	case 21:
 		p.EnterOuterAlt(localctx, 21)
 		{
-			p.SetState(122)
-			p.Match(AssemblyParserXOR)
-		}
-		{
 			p.SetState(123)
-			p.Match(AssemblyParserR0)
+			p.Match(AssemblyParserAND)
 		}
 		{
 			p.SetState(124)
-			p.Match(AssemblyParserCOMMA)
+			p.Match(AssemblyParserR0)
 		}
 		{
 			p.SetState(125)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(126)
 			p.Nibble()
 		}
 
 	case 22:
 		p.EnterOuterAlt(localctx, 22)
 		{
-			p.SetState(126)
-			p.Match(AssemblyParserEXR)
+			p.SetState(127)
+			p.Match(AssemblyParserXOR)
 		}
 		{
-			p.SetState(127)
+			p.SetState(128)
+			p.Match(AssemblyParserR0)
+		}
+		{
+			p.SetState(129)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(130)
 			p.Nibble()
 		}
 
 	case 23:
 		p.EnterOuterAlt(localctx, 23)
 		{
-			p.SetState(128)
-			p.Match(AssemblyParserBIT)
-		}
-		{
-			p.SetState(129)
-			p.Rg()
-		}
-		{
-			p.SetState(130)
-			p.Match(AssemblyParserCOMMA)
-		}
-		{
 			p.SetState(131)
-			p.Quarter()
+			p.Match(AssemblyParserEXR)
+		}
+		{
+			p.SetState(132)
+			p.Nibble()
 		}
 
 	case 24:
 		p.EnterOuterAlt(localctx, 24)
 		{
 			p.SetState(133)
-			p.Match(AssemblyParserBSET)
+			p.Match(AssemblyParserBIT)
 		}
 		{
 			p.SetState(134)
@@ -1137,7 +1275,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		p.EnterOuterAlt(localctx, 25)
 		{
 			p.SetState(138)
-			p.Match(AssemblyParserBCLR)
+			p.Match(AssemblyParserBSET)
 		}
 		{
 			p.SetState(139)
@@ -1156,7 +1294,7 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		p.EnterOuterAlt(localctx, 26)
 		{
 			p.SetState(143)
-			p.Match(AssemblyParserBTG)
+			p.Match(AssemblyParserBCLR)
 		}
 		{
 			p.SetState(144)
@@ -1175,48 +1313,67 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 		p.EnterOuterAlt(localctx, 27)
 		{
 			p.SetState(148)
-			p.Match(AssemblyParserRRC)
+			p.Match(AssemblyParserBTG)
 		}
 		{
 			p.SetState(149)
-			p.Register_symbol()
+			p.Rg()
+		}
+		{
+			p.SetState(150)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(151)
+			p.Quarter()
 		}
 
 	case 28:
 		p.EnterOuterAlt(localctx, 28)
 		{
-			p.SetState(150)
-			p.Match(AssemblyParserRET)
-		}
-		{
-			p.SetState(151)
-			p.Match(AssemblyParserR0)
-		}
-		{
-			p.SetState(152)
-			p.Match(AssemblyParserCOMMA)
-		}
-		{
 			p.SetState(153)
-			p.Nibble()
+			p.Match(AssemblyParserRRC)
+		}
+		{
+			p.SetState(154)
+			p.RegisterSymbol()
 		}
 
 	case 29:
 		p.EnterOuterAlt(localctx, 29)
 		{
-			p.SetState(154)
-			p.Mn_SKIP()
-		}
-		{
 			p.SetState(155)
-			p.Flag()
+			p.Match(AssemblyParserRET)
 		}
 		{
 			p.SetState(156)
-			p.Match(AssemblyParserCOMMA)
+			p.Match(AssemblyParserR0)
 		}
 		{
 			p.SetState(157)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(158)
+			p.Nibble()
+		}
+
+	case 30:
+		p.EnterOuterAlt(localctx, 30)
+		{
+			p.SetState(159)
+			p.Match(AssemblyParserSKIPI)
+		}
+		{
+			p.SetState(160)
+			p.Flag()
+		}
+		{
+			p.SetState(161)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(162)
 			p.Quarter()
 		}
 
@@ -1225,122 +1382,143 @@ func (p *AssemblyParser) Instruction() (localctx IInstructionContext) {
 	return localctx
 }
 
-// ISynthetic_instructionContext is an interface to support dynamic dispatch.
-type ISynthetic_instructionContext interface {
+// ISyntheticInstructionContext is an interface to support dynamic dispatch.
+type ISyntheticInstructionContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsSynthetic_instructionContext differentiates from other interfaces.
-	IsSynthetic_instructionContext()
+	// IsSyntheticInstructionContext differentiates from other interfaces.
+	IsSyntheticInstructionContext()
 }
 
-type Synthetic_instructionContext struct {
+type SyntheticInstructionContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptySynthetic_instructionContext() *Synthetic_instructionContext {
-	var p = new(Synthetic_instructionContext)
+func NewEmptySyntheticInstructionContext() *SyntheticInstructionContext {
+	var p = new(SyntheticInstructionContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AssemblyParserRULE_synthetic_instruction
+	p.RuleIndex = AssemblyParserRULE_syntheticInstruction
 	return p
 }
 
-func (*Synthetic_instructionContext) IsSynthetic_instructionContext() {}
+func (*SyntheticInstructionContext) IsSyntheticInstructionContext() {}
 
-func NewSynthetic_instructionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Synthetic_instructionContext {
-	var p = new(Synthetic_instructionContext)
+func NewSyntheticInstructionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *SyntheticInstructionContext {
+	var p = new(SyntheticInstructionContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AssemblyParserRULE_synthetic_instruction
+	p.RuleIndex = AssemblyParserRULE_syntheticInstruction
 
 	return p
 }
 
-func (s *Synthetic_instructionContext) GetParser() antlr.Parser { return s.parser }
+func (s *SyntheticInstructionContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Synthetic_instructionContext) RLC() antlr.TerminalNode {
+func (s *SyntheticInstructionContext) RLC() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserRLC, 0)
 }
 
-func (s *Synthetic_instructionContext) AllRegister_symbol() []IRegister_symbolContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IRegister_symbolContext)(nil)).Elem())
-	var tst = make([]IRegister_symbolContext, len(ts))
+func (s *SyntheticInstructionContext) AllRegisterSymbol() []IRegisterSymbolContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IRegisterSymbolContext); ok {
+			len++
+		}
+	}
 
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IRegister_symbolContext)
+	tst := make([]IRegisterSymbolContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IRegisterSymbolContext); ok {
+			tst[i] = t.(IRegisterSymbolContext)
+			i++
 		}
 	}
 
 	return tst
 }
 
-func (s *Synthetic_instructionContext) Register_symbol(i int) IRegister_symbolContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IRegister_symbolContext)(nil)).Elem(), i)
+func (s *SyntheticInstructionContext) RegisterSymbol(i int) IRegisterSymbolContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IRegisterSymbolContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IRegister_symbolContext)
+	return t.(IRegisterSymbolContext)
 }
 
-func (s *Synthetic_instructionContext) COMMA() antlr.TerminalNode {
+func (s *SyntheticInstructionContext) COMMA() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserCOMMA, 0)
 }
 
-func (s *Synthetic_instructionContext) SL() antlr.TerminalNode {
+func (s *SyntheticInstructionContext) SL() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserSL, 0)
 }
 
-func (s *Synthetic_instructionContext) LSR() antlr.TerminalNode {
+func (s *SyntheticInstructionContext) LSR() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserLSR, 0)
 }
 
-func (s *Synthetic_instructionContext) CPL() antlr.TerminalNode {
+func (s *SyntheticInstructionContext) CPL() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserCPL, 0)
 }
 
-func (s *Synthetic_instructionContext) R0() antlr.TerminalNode {
+func (s *SyntheticInstructionContext) R0() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR0, 0)
 }
 
-func (s *Synthetic_instructionContext) NEG() antlr.TerminalNode {
+func (s *SyntheticInstructionContext) NEG() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserNEG, 0)
 }
 
-func (s *Synthetic_instructionContext) NOP() antlr.TerminalNode {
+func (s *SyntheticInstructionContext) NOP() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserNOP, 0)
 }
 
-func (s *Synthetic_instructionContext) GetRuleContext() antlr.RuleContext {
+func (s *SyntheticInstructionContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Synthetic_instructionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *SyntheticInstructionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Synthetic_instructionContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *SyntheticInstructionContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.EnterSynthetic_instruction(s)
+		listenerT.EnterSyntheticInstruction(s)
 	}
 }
 
-func (s *Synthetic_instructionContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *SyntheticInstructionContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.ExitSynthetic_instruction(s)
+		listenerT.ExitSyntheticInstruction(s)
 	}
 }
 
-func (p *AssemblyParser) Synthetic_instruction() (localctx ISynthetic_instructionContext) {
-	localctx = NewSynthetic_instructionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, AssemblyParserRULE_synthetic_instruction)
+func (p *AssemblyParser) SyntheticInstruction() (localctx ISyntheticInstructionContext) {
+	this := p
+	_ = this
+
+	localctx = NewSyntheticInstructionContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 4, AssemblyParserRULE_syntheticInstruction)
 
 	defer func() {
 		p.ExitRule()
@@ -1358,37 +1536,18 @@ func (p *AssemblyParser) Synthetic_instruction() (localctx ISynthetic_instructio
 		}
 	}()
 
-	p.SetState(186)
+	p.SetState(191)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(161)
+			p.SetState(166)
 			p.Match(AssemblyParserRLC)
 		}
 		{
-			p.SetState(162)
-			p.Register_symbol()
-		}
-		{
-			p.SetState(163)
-			p.Match(AssemblyParserCOMMA)
-		}
-		{
-			p.SetState(164)
-			p.Register_symbol()
-		}
-
-	case 2:
-		p.EnterOuterAlt(localctx, 2)
-		{
-			p.SetState(166)
-			p.Match(AssemblyParserSL)
-		}
-		{
 			p.SetState(167)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(168)
@@ -1396,59 +1555,59 @@ func (p *AssemblyParser) Synthetic_instruction() (localctx ISynthetic_instructio
 		}
 		{
 			p.SetState(169)
-			p.Register_symbol()
+			p.RegisterSymbol()
+		}
+
+	case 2:
+		p.EnterOuterAlt(localctx, 2)
+		{
+			p.SetState(171)
+			p.Match(AssemblyParserSL)
+		}
+		{
+			p.SetState(172)
+			p.RegisterSymbol()
+		}
+		{
+			p.SetState(173)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(174)
+			p.RegisterSymbol()
 		}
 
 	case 3:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(171)
+			p.SetState(176)
 			p.Match(AssemblyParserLSR)
 		}
 		{
-			p.SetState(172)
-			p.Register_symbol()
+			p.SetState(177)
+			p.RegisterSymbol()
 		}
 
 	case 4:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(173)
+			p.SetState(178)
 			p.Match(AssemblyParserCPL)
 		}
 		{
-			p.SetState(174)
+			p.SetState(179)
 			p.Match(AssemblyParserR0)
 		}
 
 	case 5:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(175)
+			p.SetState(180)
 			p.Match(AssemblyParserCPL)
 		}
 		{
-			p.SetState(176)
-			p.Register_symbol()
-		}
-		{
-			p.SetState(177)
-			p.Match(AssemblyParserCOMMA)
-		}
-		{
-			p.SetState(178)
-			p.Register_symbol()
-		}
-
-	case 6:
-		p.EnterOuterAlt(localctx, 6)
-		{
-			p.SetState(180)
-			p.Match(AssemblyParserNEG)
-		}
-		{
 			p.SetState(181)
-			p.Register_symbol()
+			p.RegisterSymbol()
 		}
 		{
 			p.SetState(182)
@@ -1456,13 +1615,32 @@ func (p *AssemblyParser) Synthetic_instruction() (localctx ISynthetic_instructio
 		}
 		{
 			p.SetState(183)
-			p.Register_symbol()
+			p.RegisterSymbol()
+		}
+
+	case 6:
+		p.EnterOuterAlt(localctx, 6)
+		{
+			p.SetState(185)
+			p.Match(AssemblyParserNEG)
+		}
+		{
+			p.SetState(186)
+			p.RegisterSymbol()
+		}
+		{
+			p.SetState(187)
+			p.Match(AssemblyParserCOMMA)
+		}
+		{
+			p.SetState(188)
+			p.RegisterSymbol()
 		}
 
 	case 7:
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(185)
+			p.SetState(190)
 			p.Match(AssemblyParserNOP)
 		}
 
@@ -1538,6 +1716,9 @@ func (s *MacroContext) ExitRule(listener antlr.ParseTreeListener) {
 }
 
 func (p *AssemblyParser) Macro() (localctx IMacroContext) {
+	this := p
+	_ = this
+
 	localctx = NewMacroContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 6, AssemblyParserRULE_macro)
 
@@ -1559,16 +1740,16 @@ func (p *AssemblyParser) Macro() (localctx IMacroContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(188)
+		p.SetState(193)
 		p.Match(AssemblyParserDOT)
 	}
-	p.SetState(191)
+	p.SetState(196)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case AssemblyParserSTRING:
 		{
-			p.SetState(189)
+			p.SetState(194)
 			p.Match(AssemblyParserSTRING)
 		}
 
@@ -1581,131 +1762,134 @@ func (p *AssemblyParser) Macro() (localctx IMacroContext) {
 	return localctx
 }
 
-// IRegister_symbolContext is an interface to support dynamic dispatch.
-type IRegister_symbolContext interface {
+// IRegisterSymbolContext is an interface to support dynamic dispatch.
+type IRegisterSymbolContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsRegister_symbolContext differentiates from other interfaces.
-	IsRegister_symbolContext()
+	// IsRegisterSymbolContext differentiates from other interfaces.
+	IsRegisterSymbolContext()
 }
 
-type Register_symbolContext struct {
+type RegisterSymbolContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyRegister_symbolContext() *Register_symbolContext {
-	var p = new(Register_symbolContext)
+func NewEmptyRegisterSymbolContext() *RegisterSymbolContext {
+	var p = new(RegisterSymbolContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AssemblyParserRULE_register_symbol
+	p.RuleIndex = AssemblyParserRULE_registerSymbol
 	return p
 }
 
-func (*Register_symbolContext) IsRegister_symbolContext() {}
+func (*RegisterSymbolContext) IsRegisterSymbolContext() {}
 
-func NewRegister_symbolContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Register_symbolContext {
-	var p = new(Register_symbolContext)
+func NewRegisterSymbolContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *RegisterSymbolContext {
+	var p = new(RegisterSymbolContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AssemblyParserRULE_register_symbol
+	p.RuleIndex = AssemblyParserRULE_registerSymbol
 
 	return p
 }
 
-func (s *Register_symbolContext) GetParser() antlr.Parser { return s.parser }
+func (s *RegisterSymbolContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Register_symbolContext) R0() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R0() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR0, 0)
 }
 
-func (s *Register_symbolContext) R1() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R1() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR1, 0)
 }
 
-func (s *Register_symbolContext) R2() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R2() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR2, 0)
 }
 
-func (s *Register_symbolContext) R3() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R3() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR3, 0)
 }
 
-func (s *Register_symbolContext) R4() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R4() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR4, 0)
 }
 
-func (s *Register_symbolContext) R5() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R5() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR5, 0)
 }
 
-func (s *Register_symbolContext) R6() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R6() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR6, 0)
 }
 
-func (s *Register_symbolContext) R7() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R7() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR7, 0)
 }
 
-func (s *Register_symbolContext) R8() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R8() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR8, 0)
 }
 
-func (s *Register_symbolContext) R9() antlr.TerminalNode {
+func (s *RegisterSymbolContext) R9() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR9, 0)
 }
 
-func (s *Register_symbolContext) OUT() antlr.TerminalNode {
+func (s *RegisterSymbolContext) OUT() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserOUT, 0)
 }
 
-func (s *Register_symbolContext) IN() antlr.TerminalNode {
+func (s *RegisterSymbolContext) IN() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserIN, 0)
 }
 
-func (s *Register_symbolContext) JSR() antlr.TerminalNode {
+func (s *RegisterSymbolContext) JSR() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserJSR, 0)
 }
 
-func (s *Register_symbolContext) PCL() antlr.TerminalNode {
+func (s *RegisterSymbolContext) PCL() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserPCL, 0)
 }
 
-func (s *Register_symbolContext) PCM() antlr.TerminalNode {
+func (s *RegisterSymbolContext) PCM() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserPCM, 0)
 }
 
-func (s *Register_symbolContext) PCH() antlr.TerminalNode {
+func (s *RegisterSymbolContext) PCH() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserPCH, 0)
 }
 
-func (s *Register_symbolContext) GetRuleContext() antlr.RuleContext {
+func (s *RegisterSymbolContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Register_symbolContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *RegisterSymbolContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Register_symbolContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *RegisterSymbolContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.EnterRegister_symbol(s)
+		listenerT.EnterRegisterSymbol(s)
 	}
 }
 
-func (s *Register_symbolContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *RegisterSymbolContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.ExitRegister_symbol(s)
+		listenerT.ExitRegisterSymbol(s)
 	}
 }
 
-func (p *AssemblyParser) Register_symbol() (localctx IRegister_symbolContext) {
-	localctx = NewRegister_symbolContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, AssemblyParserRULE_register_symbol)
+func (p *AssemblyParser) RegisterSymbol() (localctx IRegisterSymbolContext) {
+	this := p
+	_ = this
+
+	localctx = NewRegisterSymbolContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 8, AssemblyParserRULE_registerSymbol)
 	var _la int
 
 	defer func() {
@@ -1726,10 +1910,10 @@ func (p *AssemblyParser) Register_symbol() (localctx IRegister_symbolContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(193)
+		p.SetState(198)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AssemblyParserR0)|(1<<AssemblyParserR1)|(1<<AssemblyParserR2)|(1<<AssemblyParserR3)|(1<<AssemblyParserR4)|(1<<AssemblyParserR5)|(1<<AssemblyParserR6)|(1<<AssemblyParserR7)|(1<<AssemblyParserR8)|(1<<AssemblyParserR9)|(1<<AssemblyParserOUT)|(1<<AssemblyParserIN)|(1<<AssemblyParserJSR)|(1<<AssemblyParserPCL)|(1<<AssemblyParserPCM)|(1<<AssemblyParserPCH))) != 0) {
+		if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&2097120) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -1811,6 +1995,9 @@ func (s *RgContext) ExitRule(listener antlr.ParseTreeListener) {
 }
 
 func (p *AssemblyParser) Rg() (localctx IRgContext) {
+	this := p
+	_ = this
+
 	localctx = NewRgContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 10, AssemblyParserRULE_rg)
 	var _la int
@@ -1833,10 +2020,10 @@ func (p *AssemblyParser) Rg() (localctx IRgContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(195)
+		p.SetState(200)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AssemblyParserR0)|(1<<AssemblyParserR1)|(1<<AssemblyParserR2))) != 0) {
+		if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&224) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -1905,6 +2092,9 @@ func (s *FlagContext) ExitRule(listener antlr.ParseTreeListener) {
 }
 
 func (p *AssemblyParser) Flag() (localctx IFlagContext) {
+	this := p
+	_ = this
+
 	localctx = NewFlagContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 12, AssemblyParserRULE_flag)
 	var _la int
@@ -1927,10 +2117,10 @@ func (p *AssemblyParser) Flag() (localctx IFlagContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(197)
+		p.SetState(202)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AssemblyParserT__0)|(1<<AssemblyParserT__1)|(1<<AssemblyParserT__2)|(1<<AssemblyParserT__3))) != 0) {
+		if !((int64(_la) & ^0x3f) == 0 && ((int64(1)<<_la)&30) != 0) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -1941,46 +2131,52 @@ func (p *AssemblyParser) Flag() (localctx IFlagContext) {
 	return localctx
 }
 
-// IData_byteContext is an interface to support dynamic dispatch.
-type IData_byteContext interface {
+// IDataByteContext is an interface to support dynamic dispatch.
+type IDataByteContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsData_byteContext differentiates from other interfaces.
-	IsData_byteContext()
+	// IsDataByteContext differentiates from other interfaces.
+	IsDataByteContext()
 }
 
-type Data_byteContext struct {
+type DataByteContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyData_byteContext() *Data_byteContext {
-	var p = new(Data_byteContext)
+func NewEmptyDataByteContext() *DataByteContext {
+	var p = new(DataByteContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AssemblyParserRULE_data_byte
+	p.RuleIndex = AssemblyParserRULE_dataByte
 	return p
 }
 
-func (*Data_byteContext) IsData_byteContext() {}
+func (*DataByteContext) IsDataByteContext() {}
 
-func NewData_byteContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Data_byteContext {
-	var p = new(Data_byteContext)
+func NewDataByteContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *DataByteContext {
+	var p = new(DataByteContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AssemblyParserRULE_data_byte
+	p.RuleIndex = AssemblyParserRULE_dataByte
 
 	return p
 }
 
-func (s *Data_byteContext) GetParser() antlr.Parser { return s.parser }
+func (s *DataByteContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Data_byteContext) Literal() ILiteralContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ILiteralContext)(nil)).Elem(), 0)
+func (s *DataByteContext) Literal() ILiteralContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ILiteralContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
 
 	if t == nil {
 		return nil
@@ -1989,29 +2185,32 @@ func (s *Data_byteContext) Literal() ILiteralContext {
 	return t.(ILiteralContext)
 }
 
-func (s *Data_byteContext) GetRuleContext() antlr.RuleContext {
+func (s *DataByteContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Data_byteContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *DataByteContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Data_byteContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *DataByteContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.EnterData_byte(s)
+		listenerT.EnterDataByte(s)
 	}
 }
 
-func (s *Data_byteContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *DataByteContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.ExitData_byte(s)
+		listenerT.ExitDataByte(s)
 	}
 }
 
-func (p *AssemblyParser) Data_byte() (localctx IData_byteContext) {
-	localctx = NewData_byteContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 14, AssemblyParserRULE_data_byte)
+func (p *AssemblyParser) DataByte() (localctx IDataByteContext) {
+	this := p
+	_ = this
+
+	localctx = NewDataByteContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 14, AssemblyParserRULE_dataByte)
 
 	defer func() {
 		p.ExitRule()
@@ -2031,7 +2230,7 @@ func (p *AssemblyParser) Data_byte() (localctx IData_byteContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(199)
+		p.SetState(204)
 		p.Literal()
 	}
 
@@ -2077,7 +2276,13 @@ func NewNibbleContext(parser antlr.Parser, parent antlr.ParserRuleContext, invok
 func (s *NibbleContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *NibbleContext) Literal() ILiteralContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ILiteralContext)(nil)).Elem(), 0)
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ILiteralContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
 
 	if t == nil {
 		return nil
@@ -2107,6 +2312,9 @@ func (s *NibbleContext) ExitRule(listener antlr.ParseTreeListener) {
 }
 
 func (p *AssemblyParser) Nibble() (localctx INibbleContext) {
+	this := p
+	_ = this
+
 	localctx = NewNibbleContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 16, AssemblyParserRULE_nibble)
 
@@ -2128,7 +2336,7 @@ func (p *AssemblyParser) Nibble() (localctx INibbleContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(201)
+		p.SetState(206)
 		p.Literal()
 	}
 
@@ -2174,7 +2382,13 @@ func NewQuarterContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 func (s *QuarterContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *QuarterContext) Literal() ILiteralContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*ILiteralContext)(nil)).Elem(), 0)
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ILiteralContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
 
 	if t == nil {
 		return nil
@@ -2204,6 +2418,9 @@ func (s *QuarterContext) ExitRule(listener antlr.ParseTreeListener) {
 }
 
 func (p *AssemblyParser) Quarter() (localctx IQuarterContext) {
+	this := p
+	_ = this
+
 	localctx = NewQuarterContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 18, AssemblyParserRULE_quarter)
 
@@ -2225,109 +2442,130 @@ func (p *AssemblyParser) Quarter() (localctx IQuarterContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(203)
+		p.SetState(208)
 		p.Literal()
 	}
 
 	return localctx
 }
 
-// IRegister_comboContext is an interface to support dynamic dispatch.
-type IRegister_comboContext interface {
+// IRegisterComboContext is an interface to support dynamic dispatch.
+type IRegisterComboContext interface {
 	antlr.ParserRuleContext
 
 	// GetParser returns the parser.
 	GetParser() antlr.Parser
 
-	// IsRegister_comboContext differentiates from other interfaces.
-	IsRegister_comboContext()
+	// IsRegisterComboContext differentiates from other interfaces.
+	IsRegisterComboContext()
 }
 
-type Register_comboContext struct {
+type RegisterComboContext struct {
 	*antlr.BaseParserRuleContext
 	parser antlr.Parser
 }
 
-func NewEmptyRegister_comboContext() *Register_comboContext {
-	var p = new(Register_comboContext)
+func NewEmptyRegisterComboContext() *RegisterComboContext {
+	var p = new(RegisterComboContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AssemblyParserRULE_register_combo
+	p.RuleIndex = AssemblyParserRULE_registerCombo
 	return p
 }
 
-func (*Register_comboContext) IsRegister_comboContext() {}
+func (*RegisterComboContext) IsRegisterComboContext() {}
 
-func NewRegister_comboContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Register_comboContext {
-	var p = new(Register_comboContext)
+func NewRegisterComboContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *RegisterComboContext {
+	var p = new(RegisterComboContext)
 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AssemblyParserRULE_register_combo
+	p.RuleIndex = AssemblyParserRULE_registerCombo
 
 	return p
 }
 
-func (s *Register_comboContext) GetParser() antlr.Parser { return s.parser }
+func (s *RegisterComboContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *Register_comboContext) L_BRACKET() antlr.TerminalNode {
+func (s *RegisterComboContext) L_BRACKET() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserL_BRACKET, 0)
 }
 
-func (s *Register_comboContext) AllRegister_symbol() []IRegister_symbolContext {
-	var ts = s.GetTypedRuleContexts(reflect.TypeOf((*IRegister_symbolContext)(nil)).Elem())
-	var tst = make([]IRegister_symbolContext, len(ts))
+func (s *RegisterComboContext) AllRegisterSymbol() []IRegisterSymbolContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IRegisterSymbolContext); ok {
+			len++
+		}
+	}
 
-	for i, t := range ts {
-		if t != nil {
-			tst[i] = t.(IRegister_symbolContext)
+	tst := make([]IRegisterSymbolContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IRegisterSymbolContext); ok {
+			tst[i] = t.(IRegisterSymbolContext)
+			i++
 		}
 	}
 
 	return tst
 }
 
-func (s *Register_comboContext) Register_symbol(i int) IRegister_symbolContext {
-	var t = s.GetTypedRuleContext(reflect.TypeOf((*IRegister_symbolContext)(nil)).Elem(), i)
+func (s *RegisterComboContext) RegisterSymbol(i int) IRegisterSymbolContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IRegisterSymbolContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
 
 	if t == nil {
 		return nil
 	}
 
-	return t.(IRegister_symbolContext)
+	return t.(IRegisterSymbolContext)
 }
 
-func (s *Register_comboContext) COLON() antlr.TerminalNode {
+func (s *RegisterComboContext) COLON() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserCOLON, 0)
 }
 
-func (s *Register_comboContext) R_BRACKET() antlr.TerminalNode {
+func (s *RegisterComboContext) R_BRACKET() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserR_BRACKET, 0)
 }
 
-func (s *Register_comboContext) GetRuleContext() antlr.RuleContext {
+func (s *RegisterComboContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
 
-func (s *Register_comboContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+func (s *RegisterComboContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
 	return antlr.TreesStringTree(s, ruleNames, recog)
 }
 
-func (s *Register_comboContext) EnterRule(listener antlr.ParseTreeListener) {
+func (s *RegisterComboContext) EnterRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.EnterRegister_combo(s)
+		listenerT.EnterRegisterCombo(s)
 	}
 }
 
-func (s *Register_comboContext) ExitRule(listener antlr.ParseTreeListener) {
+func (s *RegisterComboContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.ExitRegister_combo(s)
+		listenerT.ExitRegisterCombo(s)
 	}
 }
 
-func (p *AssemblyParser) Register_combo() (localctx IRegister_comboContext) {
-	localctx = NewRegister_comboContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 20, AssemblyParserRULE_register_combo)
+func (p *AssemblyParser) RegisterCombo() (localctx IRegisterComboContext) {
+	this := p
+	_ = this
+
+	localctx = NewRegisterComboContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 20, AssemblyParserRULE_registerCombo)
 
 	defer func() {
 		p.ExitRule()
@@ -2347,23 +2585,23 @@ func (p *AssemblyParser) Register_combo() (localctx IRegister_comboContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(205)
+		p.SetState(210)
 		p.Match(AssemblyParserL_BRACKET)
 	}
 	{
-		p.SetState(206)
-		p.Register_symbol()
+		p.SetState(211)
+		p.RegisterSymbol()
 	}
 	{
-		p.SetState(207)
+		p.SetState(212)
 		p.Match(AssemblyParserCOLON)
 	}
 	{
-		p.SetState(208)
-		p.Register_symbol()
+		p.SetState(213)
+		p.RegisterSymbol()
 	}
 	{
-		p.SetState(209)
+		p.SetState(214)
 		p.Match(AssemblyParserR_BRACKET)
 	}
 
@@ -2437,6 +2675,9 @@ func (s *LiteralContext) ExitRule(listener antlr.ParseTreeListener) {
 }
 
 func (p *AssemblyParser) Literal() (localctx ILiteralContext) {
+	this := p
+	_ = this
+
 	localctx = NewLiteralContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 22, AssemblyParserRULE_literal)
 	var _la int
@@ -2459,7 +2700,7 @@ func (p *AssemblyParser) Literal() (localctx ILiteralContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(211)
+		p.SetState(216)
 		_la = p.GetTokenStream().LA(1)
 
 		if !(_la == AssemblyParserCHARACTER || _la == AssemblyParserNUMBER) {
@@ -2519,8 +2760,8 @@ func (s *DirectiveContext) STRING() antlr.TerminalNode {
 	return s.GetToken(AssemblyParserSTRING, 0)
 }
 
-func (s *DirectiveContext) IDENTIFIER() antlr.TerminalNode {
-	return s.GetToken(AssemblyParserIDENTIFIER, 0)
+func (s *DirectiveContext) LABEL() antlr.TerminalNode {
+	return s.GetToken(AssemblyParserLABEL, 0)
 }
 
 func (s *DirectiveContext) GetRuleContext() antlr.RuleContext {
@@ -2544,6 +2785,9 @@ func (s *DirectiveContext) ExitRule(listener antlr.ParseTreeListener) {
 }
 
 func (p *AssemblyParser) Directive() (localctx IDirectiveContext) {
+	this := p
+	_ = this
+
 	localctx = NewDirectiveContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 24, AssemblyParserRULE_directive)
 	var _la int
@@ -2566,105 +2810,19 @@ func (p *AssemblyParser) Directive() (localctx IDirectiveContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(213)
+		p.SetState(218)
 		p.Match(AssemblyParserDOT)
 	}
 	{
-		p.SetState(214)
+		p.SetState(219)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(_la == AssemblyParserSTRING || _la == AssemblyParserIDENTIFIER) {
+		if !(_la == AssemblyParserSTRING || _la == AssemblyParserLABEL) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
 			p.Consume()
 		}
-	}
-
-	return localctx
-}
-
-// IMn_SKIPContext is an interface to support dynamic dispatch.
-type IMn_SKIPContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// IsMn_SKIPContext differentiates from other interfaces.
-	IsMn_SKIPContext()
-}
-
-type Mn_SKIPContext struct {
-	*antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyMn_SKIPContext() *Mn_SKIPContext {
-	var p = new(Mn_SKIPContext)
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AssemblyParserRULE_mn_SKIP
-	return p
-}
-
-func (*Mn_SKIPContext) IsMn_SKIPContext() {}
-
-func NewMn_SKIPContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *Mn_SKIPContext {
-	var p = new(Mn_SKIPContext)
-
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = AssemblyParserRULE_mn_SKIP
-
-	return p
-}
-
-func (s *Mn_SKIPContext) GetParser() antlr.Parser { return s.parser }
-func (s *Mn_SKIPContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *Mn_SKIPContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *Mn_SKIPContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.EnterMn_SKIP(s)
-	}
-}
-
-func (s *Mn_SKIPContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AssemblyListener); ok {
-		listenerT.ExitMn_SKIP(s)
-	}
-}
-
-func (p *AssemblyParser) Mn_SKIP() (localctx IMn_SKIPContext) {
-	localctx = NewMn_SKIPContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, AssemblyParserRULE_mn_SKIP)
-
-	defer func() {
-		p.ExitRule()
-	}()
-
-	defer func() {
-		if err := recover(); err != nil {
-			if v, ok := err.(antlr.RecognitionException); ok {
-				localctx.SetException(v)
-				p.GetErrorHandler().ReportError(p, v)
-				p.GetErrorHandler().Recover(p, v)
-			} else {
-				panic(err)
-			}
-		}
-	}()
-
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(216)
-		p.Match(AssemblyParserT__4)
 	}
 
 	return localctx

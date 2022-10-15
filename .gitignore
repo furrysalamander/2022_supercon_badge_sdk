@@ -23,3 +23,5 @@ go.work
 .antlr/
 antlr4-*-complete.jar
 .vscode/
+
+assembler

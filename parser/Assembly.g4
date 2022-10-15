@@ -2,30 +2,31 @@ grammar Assembly;
 options {}
 
 start
-: (directive (instruction | synthetic_instruction))* EOF;
+: (directive? (instruction | syntheticInstruction))* EOF;
 
 // Is there an easy way to enforce size limits on the immediates here?  Or will we need to do that when walking the tree?
 
 instruction
-: ADD register_symbol COMMA register_symbol
-| ADC register_symbol COMMA register_symbol
-| SBB register_symbol COMMA register_symbol
-| OR  register_symbol COMMA register_symbol
-| AND register_symbol COMMA register_symbol
-| XOR register_symbol COMMA register_symbol
-| MOV register_symbol COMMA register_symbol
-| MOV register_symbol COMMA nibble
-| MOV register_combo COMMA R0
-| MOV R0 COMMA register_combo
-| MOV R0 COMMA L_BRACKET data_byte R_BRACKET // Maybe this should be a special case, like the register combo.
+: ADD registerSymbol COMMA registerSymbol
+| ADC registerSymbol COMMA registerSymbol
+| SUB registerSymbol COMMA registerSymbol
+| SBB registerSymbol COMMA registerSymbol
+| OR  registerSymbol COMMA registerSymbol
+| AND registerSymbol COMMA registerSymbol
+| XOR registerSymbol COMMA registerSymbol
+| MOV registerSymbol COMMA registerSymbol
+| MOV registerSymbol COMMA nibble
+| MOV registerCombo COMMA R0
+| MOV R0 COMMA registerCombo
+| MOV R0 COMMA L_BRACKET dataByte R_BRACKET // Maybe this should be a special case, like the register combo.
 //| MOV PC COMMA // At one point in the docs, this instruction is called LPC.  Personally, I think that's cleaner than all these MOV variants, but whatever.
-| LPC data_byte
-| JR data_byte
+| LPC dataByte
+| JR dataByte
 | CP R0 COMMA nibble
 | ADD R0 COMMA nibble
-| INC register_symbol
-| DEC register_symbol
-| DSZ register_symbol
+| INC registerSymbol
+| DEC registerSymbol
+| DSZ registerSymbol
 | OR R0 COMMA nibble
 | AND R0 COMMA nibble
 | XOR R0 COMMA nibble
@@ -34,18 +35,18 @@ instruction
 | BSET rg COMMA quarter
 | BCLR rg COMMA quarter
 | BTG  rg COMMA quarter
-| RRC register_symbol
+| RRC registerSymbol
 | RET R0 COMMA nibble
-| mn_SKIP flag COMMA quarter
+| SKIPI flag COMMA quarter
 ;
 
-synthetic_instruction
-: RLC register_symbol COMMA register_symbol
-| SL register_symbol COMMA register_symbol
-| LSR register_symbol
+syntheticInstruction
+: RLC registerSymbol COMMA registerSymbol
+| SL registerSymbol COMMA registerSymbol
+| LSR registerSymbol
 | CPL R0
-| CPL register_symbol COMMA register_symbol
-| NEG register_symbol COMMA register_symbol
+| CPL registerSymbol COMMA registerSymbol
+| NEG registerSymbol COMMA registerSymbol
 | NOP
 ;
 
@@ -55,7 +56,7 @@ DOT
 | 
 );
 
-register_symbol
+registerSymbol
 : R0
 | R1
 | R2
@@ -107,17 +108,17 @@ PCM: 'PCM';
 PCH: 'PCH';
 
 
-data_byte: literal;
+dataByte: literal;
 nibble: literal;
 quarter: literal; // Half a nibble
-register_combo: L_BRACKET register_symbol COLON register_symbol R_BRACKET;
+registerCombo: L_BRACKET registerSymbol COLON registerSymbol R_BRACKET;
 
 literal: (NUMBER | CHARACTER); // TODO support for non base 10 values.
 
 directive
 : DOT (
     STRING
-|   IDENTIFIER
+|   LABEL
 );
 
 // Instructions
@@ -141,7 +142,7 @@ BCLR: 'BCLR';
 BTG: 'BTG';
 RRC: 'RRC';
 RET: 'RET';
-mn_SKIP: 'SKIP';
+SKIPI: 'SKIP';
 
 // Synthetic Instructions
 RLC: 'RLC';
@@ -169,17 +170,17 @@ CHARACTER
 : '\'' . '\''
 | '\'\\' . '\'';
 
-COMMENT
-: '/*' .*? '*/' -> skip
-;
+
+// BLOCK_COMMENT
+// : '/*' .*? '*/' -> skip
+// ;
 LINE_COMMENT
-: '//' ~[\r\n]* -> skip
+: ';' ~[\r\n]* -> skip
 ;
 
+LABEL                : LETTER(LETTER|NUMBER)*;
 fragment LETTER      : [A-Za-z_];
-IDENTIFIER           : LETTER(LETTER|NUMBER)*;
-
-NUMBER      : '-'? [0-9]+ ;
+NUMBER               : '-'? [0-9]+ ;
 WHITESPACE           : ' ' -> skip ;
 NEWLINE              : '\n' -> skip ;
 CARRIAGE             : '\r' -> skip ;

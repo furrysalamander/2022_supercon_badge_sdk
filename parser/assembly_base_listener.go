@@ -1,8 +1,7 @@
-// Code generated from Assembly.g4 by ANTLR 4.7.2. DO NOT EDIT.
+// Code generated from java-escape by ANTLR 4.11.1. DO NOT EDIT.
 
 package parser // Assembly
-
-import "github.com/antlr/antlr4/runtime/Go/antlr"
+import "github.com/antlr/antlr4/runtime/Go/antlr/v4"
 
 // BaseAssemblyListener is a complete listener for a parse tree produced by AssemblyParser.
 type BaseAssemblyListener struct{}
@@ -33,11 +32,11 @@ func (s *BaseAssemblyListener) EnterInstruction(ctx *InstructionContext) {}
 // ExitInstruction is called when production instruction is exited.
 func (s *BaseAssemblyListener) ExitInstruction(ctx *InstructionContext) {}
 
-// EnterSynthetic_instruction is called when production synthetic_instruction is entered.
-func (s *BaseAssemblyListener) EnterSynthetic_instruction(ctx *Synthetic_instructionContext) {}
+// EnterSyntheticInstruction is called when production syntheticInstruction is entered.
+func (s *BaseAssemblyListener) EnterSyntheticInstruction(ctx *SyntheticInstructionContext) {}
 
-// ExitSynthetic_instruction is called when production synthetic_instruction is exited.
-func (s *BaseAssemblyListener) ExitSynthetic_instruction(ctx *Synthetic_instructionContext) {}
+// ExitSyntheticInstruction is called when production syntheticInstruction is exited.
+func (s *BaseAssemblyListener) ExitSyntheticInstruction(ctx *SyntheticInstructionContext) {}
 
 // EnterMacro is called when production macro is entered.
 func (s *BaseAssemblyListener) EnterMacro(ctx *MacroContext) {}
@@ -45,11 +44,11 @@ func (s *BaseAssemblyListener) EnterMacro(ctx *MacroContext) {}
 // ExitMacro is called when production macro is exited.
 func (s *BaseAssemblyListener) ExitMacro(ctx *MacroContext) {}
 
-// EnterRegister_symbol is called when production register_symbol is entered.
-func (s *BaseAssemblyListener) EnterRegister_symbol(ctx *Register_symbolContext) {}
+// EnterRegisterSymbol is called when production registerSymbol is entered.
+func (s *BaseAssemblyListener) EnterRegisterSymbol(ctx *RegisterSymbolContext) {}
 
-// ExitRegister_symbol is called when production register_symbol is exited.
-func (s *BaseAssemblyListener) ExitRegister_symbol(ctx *Register_symbolContext) {}
+// ExitRegisterSymbol is called when production registerSymbol is exited.
+func (s *BaseAssemblyListener) ExitRegisterSymbol(ctx *RegisterSymbolContext) {}
 
 // EnterRg is called when production rg is entered.
 func (s *BaseAssemblyListener) EnterRg(ctx *RgContext) {}
@@ -63,11 +62,11 @@ func (s *BaseAssemblyListener) EnterFlag(ctx *FlagContext) {}
 // ExitFlag is called when production flag is exited.
 func (s *BaseAssemblyListener) ExitFlag(ctx *FlagContext) {}
 
-// EnterData_byte is called when production data_byte is entered.
-func (s *BaseAssemblyListener) EnterData_byte(ctx *Data_byteContext) {}
+// EnterDataByte is called when production dataByte is entered.
+func (s *BaseAssemblyListener) EnterDataByte(ctx *DataByteContext) {}
 
-// ExitData_byte is called when production data_byte is exited.
-func (s *BaseAssemblyListener) ExitData_byte(ctx *Data_byteContext) {}
+// ExitDataByte is called when production dataByte is exited.
+func (s *BaseAssemblyListener) ExitDataByte(ctx *DataByteContext) {}
 
 // EnterNibble is called when production nibble is entered.
 func (s *BaseAssemblyListener) EnterNibble(ctx *NibbleContext) {}
@@ -81,11 +80,11 @@ func (s *BaseAssemblyListener) EnterQuarter(ctx *QuarterContext) {}
 // ExitQuarter is called when production quarter is exited.
 func (s *BaseAssemblyListener) ExitQuarter(ctx *QuarterContext) {}
 
-// EnterRegister_combo is called when production register_combo is entered.
-func (s *BaseAssemblyListener) EnterRegister_combo(ctx *Register_comboContext) {}
+// EnterRegisterCombo is called when production registerCombo is entered.
+func (s *BaseAssemblyListener) EnterRegisterCombo(ctx *RegisterComboContext) {}
 
-// ExitRegister_combo is called when production register_combo is exited.
-func (s *BaseAssemblyListener) ExitRegister_combo(ctx *Register_comboContext) {}
+// ExitRegisterCombo is called when production registerCombo is exited.
+func (s *BaseAssemblyListener) ExitRegisterCombo(ctx *RegisterComboContext) {}
 
 // EnterLiteral is called when production literal is entered.
 func (s *BaseAssemblyListener) EnterLiteral(ctx *LiteralContext) {}
@@ -98,9 +97,3 @@ func (s *BaseAssemblyListener) EnterDirective(ctx *DirectiveContext) {}
 
 // ExitDirective is called when production directive is exited.
 func (s *BaseAssemblyListener) ExitDirective(ctx *DirectiveContext) {}
-
-// EnterMn_SKIP is called when production mn_SKIP is entered.
-func (s *BaseAssemblyListener) EnterMn_SKIP(ctx *Mn_SKIPContext) {}
-
-// ExitMn_SKIP is called when production mn_SKIP is exited.
-func (s *BaseAssemblyListener) ExitMn_SKIP(ctx *Mn_SKIPContext) {}
