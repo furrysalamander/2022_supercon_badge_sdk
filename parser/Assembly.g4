@@ -19,6 +19,7 @@ instruction
 | MOV registerCombo COMMA R0
 | MOV R0 COMMA registerCombo
 | MOV R0 COMMA L_BRACKET dataByte R_BRACKET // Maybe this should be a special case, like the register combo.
+| MOV L_BRACKET dataByte R_BRACKET COMMA R0
 //| MOV PC COMMA // At one point in the docs, this instruction is called LPC.  Personally, I think that's cleaner than all these MOV variants, but whatever.
 | LPC dataByte
 | JR dataByte

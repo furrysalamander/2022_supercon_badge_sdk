@@ -2,12 +2,13 @@ EXR 12
 ADD R7, R8
 ADD R0, 5
 
-; ADC R1, R0;
-; SUB R2, R0;
-; SBB R3, R0;
-; OR  R4, R0;
-; AND R5, R0;
-; XOR R6, R7;
+ADC R1, R0;
+SUB R2, R0;
+SBB R3, R0;
+OR  R4, R0;
+AND R5, R0;
+XOR R6, R7;
+
 ; MOV
 ; MOV
 ; MOV

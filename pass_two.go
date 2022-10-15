@@ -12,6 +12,8 @@ type PassTwoListener struct {
 	*parser.BaseAssemblyListener
 
 	// progHex is the hex string representing the program.
+	// This design decision was made because it was the easiest way to manage a list of nibbles.
+	// The dynamic sizing is a little bit weird, but we're going to roll with it for now.
 	progHex strings.Builder
 }
 
@@ -118,13 +120,21 @@ func (s *PassTwoListener) EnterInstruction(ctx *parser.InstructionContext) {
 		s.WriteAluInstruction(ctx, "7")
 	case ctx.MOV():
 		fmt.Println("MOV")
-		s.WriteDoubleRegInstruction(ctx, "8")
-		// s.WriteNibbles("9") // TODO
-		// s.WriteNibbles("A") // TODO
-		// s.WriteNibbles("B") // TODO
-		// s.WriteNibbles("C") // TODO
-		// s.WriteNibbles("D") // TODO
-		// s.WriteNibbles("E") // TODO
+		if ctx.RegisterSymbol(1) != nil {
+			s.WriteDoubleRegInstruction(ctx, "8")
+		} else if ctx.Nibble() != nil {
+			s.WriteNibbles("9")
+			s.WriteRegisterCode(ctx.RegisterSymbol(0))
+			s.WriteImmediateNibble(ctx.Nibble().GetText())
+		} else if ctx.RegisterCombo() != nil {
+			fmt.Println("MOV for 8 bit address not yet implemented.") // TODO
+		} else if ctx.DataByte() != nil {
+			if ctx.GetChild(0) == ctx.R0() {
+				s.WriteDataByteInstruction(ctx, "C")
+			} else {
+				s.WriteDataByteInstruction(ctx, "D")
+			}
+		}
 	case ctx.LPC():
 		fmt.Println("LPC")
 		s.WriteDataByteInstruction(ctx, "E")
