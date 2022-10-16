@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	input, _ := antlr.NewFileStream("test.asm")
+	input, _ := antlr.NewFileStream(os.Args[1])
 	lexer := parser.NewAssemblyLexer(input)
 	stream := antlr.NewCommonTokenStream(lexer, 0)
 	p := parser.NewAssemblyParser(stream)
