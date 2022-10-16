@@ -1,9 +1,9 @@
-EXR 12
+.test EXR 12
 ADD R7, R8
 ADD R0, 5
 
 ADC R1, R0;
-SUB R2, R0;
+.sub SUB R2, R0;
 SBB R3, R0;
 OR  R4, R0;
 AND R5, R0;

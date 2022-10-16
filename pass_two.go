@@ -98,28 +98,28 @@ func (s *PassTwoListener) EnterInstruction(ctx *parser.InstructionContext) {
 
 	switch instructionMnemonic {
 	case ctx.ADD():
-		fmt.Println("ADD")
+		// fmt.Println("ADD")
 		s.WriteAluInstruction(ctx, "1")
 	case ctx.ADC():
-		fmt.Println("ADC")
+		// fmt.Println("ADC")
 		s.WriteAluInstruction(ctx, "2")
 	case ctx.SUB():
-		fmt.Println("SUB")
+		// fmt.Println("SUB")
 		s.WriteAluInstruction(ctx, "3")
 	case ctx.SBB():
-		fmt.Println("SBB")
+		// fmt.Println("SBB")
 		s.WriteAluInstruction(ctx, "4")
 	case ctx.OR():
-		fmt.Println("OR")
+		// fmt.Println("OR")
 		s.WriteAluInstruction(ctx, "5")
 	case ctx.AND():
-		fmt.Println("AND")
+		// fmt.Println("AND")
 		s.WriteAluInstruction(ctx, "6")
 	case ctx.XOR():
-		fmt.Println("XOR")
+		// fmt.Println("XOR")
 		s.WriteAluInstruction(ctx, "7")
 	case ctx.MOV():
-		fmt.Println("MOV")
+		// fmt.Println("MOV")
 		if ctx.RegisterSymbol(1) != nil {
 			s.WriteDoubleRegInstruction(ctx, "8")
 		} else if ctx.Nibble() != nil {
@@ -127,7 +127,13 @@ func (s *PassTwoListener) EnterInstruction(ctx *parser.InstructionContext) {
 			s.WriteRegisterCode(ctx.RegisterSymbol(0))
 			s.WriteImmediateNibble(ctx.Nibble().GetText())
 		} else if ctx.RegisterCombo() != nil {
-			fmt.Println("MOV for 8 bit address not yet implemented.") // TODO
+			if ctx.GetChild(1) != ctx.R0() {
+				s.WriteNibbles("A")
+			} else {
+				s.WriteNibbles("B")
+			}
+			// Don't worry about adding the register combo to the program code
+			// because it will be picked up in the register combo listener hook.
 		} else if ctx.DataByte() != nil {
 			if ctx.GetChild(0) == ctx.R0() {
 				s.WriteDataByteInstruction(ctx, "C")
@@ -136,50 +142,55 @@ func (s *PassTwoListener) EnterInstruction(ctx *parser.InstructionContext) {
 			}
 		}
 	case ctx.LPC():
-		fmt.Println("LPC")
+		// fmt.Println("LPC")
 		s.WriteDataByteInstruction(ctx, "E")
 	case ctx.JR():
-		fmt.Println("JR")
+		// fmt.Println("JR")
 		s.WriteDataByteInstruction(ctx, "F")
 	case ctx.CP():
-		fmt.Println("CP")
+		// fmt.Println("CP")
 		s.WriteRegZeroNibbleInstruction(ctx, "00")
 	case ctx.INC():
-		fmt.Println("INC")
+		// fmt.Println("INC")
 		s.WriteSingleRegInstruction(ctx, "02")
 	case ctx.DEC():
-		fmt.Println("DEC")
+		// fmt.Println("DEC")
 		s.WriteSingleRegInstruction(ctx, "03")
 	case ctx.DSZ():
-		fmt.Println("DSZ")
+		// fmt.Println("DSZ")
 		s.WriteSingleRegInstruction(ctx, "04")
 	case ctx.EXR():
-		fmt.Println("EXR")
+		// fmt.Println("EXR")
 		s.WriteRegZeroNibbleInstruction(ctx, "08")
 	case ctx.BIT():
-		fmt.Println("BIT")
+		// fmt.Println("BIT")
 		s.WriteNibbles("09") // TODO
 	case ctx.BSET():
-		fmt.Println("BSET")
+		// fmt.Println("BSET")
 		s.WriteNibbles("0A") // TODO
 	case ctx.BCLR():
-		fmt.Println("BCLR")
+		// fmt.Println("BCLR")
 		s.WriteNibbles("0B") // TODO
 	case ctx.BTG():
-		fmt.Println("BTG")
+		// fmt.Println("BTG")
 		s.WriteNibbles("0C") // TODO
 	case ctx.RRC():
-		fmt.Println("RRC")
+		// fmt.Println("RRC")
 		s.WriteSingleRegInstruction(ctx, "0D")
 	case ctx.RET():
-		fmt.Println("RET")
+		// fmt.Println("RET")
 		s.WriteRegZeroNibbleInstruction(ctx, "0E")
 	case ctx.SKIPI():
-		fmt.Println("SKIP")
+		// fmt.Println("SKIP")
 		s.WriteNibbles("0F") // TODO
 	default:
-		fmt.Println("Instruction Not Yet Implemented")
+		// fmt.Println("Instruction Not Yet Implemented")
 	}
+}
+
+func (s *PassTwoListener) EnterRegisterCombo(ctx *parser.RegisterComboContext) {
+	s.WriteRegisterCode(ctx.RegisterSymbol(0))
+	s.WriteRegisterCode(ctx.RegisterSymbol(1))
 }
 
 // TODO
@@ -192,6 +203,6 @@ func (s *PassTwoListener) EnterSyntheticInstruction(ctx *parser.SyntheticInstruc
 	instructionMnemonic := ctx.GetChild(0)
 	switch instructionMnemonic {
 	case ctx.CPL():
-		fmt.Println("CPL")
+		// fmt.Println("CPL")
 	}
 }

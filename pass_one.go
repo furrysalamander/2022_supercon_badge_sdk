@@ -6,34 +6,46 @@ import (
 
 type PassOneListener struct {
 	*parser.BaseAssemblyListener
+
+	programCounter int
+	symbolTable    map[string]int
 }
 
-func validateDataSize(s string, bits int) bool {
-	return true
-}
-
-func (s *PassOneListener) EnterDataByte(ctx *parser.DataByteContext) {
-	if !validateDataSize(ctx.GetText(), 8) {
-		panic("") // TODO: Add better erorr messages.
-	}
-}
-
-func (s *PassOneListener) EnterNibble(ctx *parser.NibbleContext) {
-	if !validateDataSize(ctx.GetText(), 4) {
-		panic("") // TODO: Add better erorr messages.
-	}
-}
-
-func (s *PassOneListener) EnterQuarter(ctx *parser.QuarterContext) {
-	if !validateDataSize(ctx.GetText(), 2) {
-		panic("") // TODO: Add better erorr messages.
-	}
+func (s *PassOneListener) EnterStart(ctx *parser.StartContext) {
+	s.symbolTable = make(map[string]int)
 }
 
 func (s *PassOneListener) EnterInstruction(ctx *parser.InstructionContext) {
+	s.programCounter++
+}
 
+func (s *PassOneListener) EnterSyntheticInstruction(ctx *parser.SyntheticInstructionContext) {
+	switch ctx.GetChild(0) {
+	case ctx.RLC():
+		fallthrough
+	case ctx.SL():
+		fallthrough
+	case ctx.LSR():
+		fallthrough
+	case ctx.NEG():
+		s.programCounter += 2
+
+	case ctx.CPL():
+		if ctx.RegisterSymbol(1) == nil {
+			s.programCounter++
+		} else {
+			s.programCounter += 2
+		}
+
+	case ctx.NOP():
+		s.programCounter++
+	default:
+		panic("Synthetic instruction not implemented!")
+	}
 }
 
 func (s *PassOneListener) EnterDirective(ctx *parser.DirectiveContext) {
-
+	if label := ctx.LABEL(); label != nil {
+		s.symbolTable[label.GetText()] = s.programCounter
+	}
 }
